@@ -1,0 +1,245 @@
+{
+  "WA_STATE": {
+    "number": 0,
+    "description": "Open, close, logout from your WA account on ChatDaddy",
+    "features": ["team-inbox"]
+  },
+  "CONTACTS_READ_ASSIGNED": {
+    "number": 2,
+    "description": "Read contacts assigned to you",
+    "features": ["team-inbox"]
+  },
+  "CONTACTS_READ_ALL": {
+    "number": 3,
+    "description": "Read all contacts",
+    "features": ["team-inbox"]
+  },
+  "CONTACTS_CREATE": {
+    "number": 4,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "CONTACTS_DELETE": {
+    "number": 5,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "CONTACTS_UPDATE": {
+    "number": 6,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "CAMPAIGNS_READ": {
+    "number": 7,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "CAMPAIGNS_CREATE": {
+    "number": 8,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "CAMPAIGNS_DELETE": {
+    "number": 9,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "CAMPAIGNS_UPDATE": {
+    "number": 10,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "KEYWORD_READ": {
+    "number": 11,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "KEYWORD_CREATE": {
+    "number": 12,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "KEYWORD_DELETE": {
+    "number": 13,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "KEYWORD_UPDATE": {
+    "number": 14,
+    "description": "",
+    "features": ["marketing"]
+  },
+  "FLOWS_READ": {
+    "number": 15,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "FLOWS_CREATE": {
+    "number": 16,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "FLOWS_DELETE": {
+    "number": 17,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "FLOWS_UPDATE": {
+    "number": 18,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "TAGS_READ": {
+    "number": 19,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "TAGS_CREATE": {
+    "number": 20,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "TAGS_DELETE": {
+    "number": 21,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "TOKENS_READ": {
+    "number": 22,
+    "description": "Read all tokens belonging to your account",
+    "irrevokable": true,
+    "features": []
+  },
+  "TOKENS_DELETE": {
+    "number": 23,
+    "description": "Delete a refresh token belonging to your account",
+    "irrevokable": true,
+    "features": []
+  },
+  "USERS_PATCH": {
+    "number": 24,
+    "description": "Update your info",
+    "irrevokable": true,
+    "features": []
+  },
+  "TEAM_UPDATE": {
+    "number": 29,
+    "description": "",
+    "features": []
+  },
+  "TEAMLINK_CREATE": {
+    "number": 38,
+    "description": "",
+    "features": []
+  },
+  "TEAMLINK_READ": {
+    "number": 39,
+    "description": "Read invite links of the team",
+    "features": []
+  },
+  "TEAMMEMBERS_UPDATE": {
+    "number": 30,
+    "description": "",
+    "features": []
+  },
+  "TEAMMEMBERS_READ": {
+    "number": 40,
+    "description": "",
+    "features": []
+  },
+  "TEAM_NOTIFY": {
+    "number": 52,
+    "description": "",
+    "features": []
+  },
+  "CHATS_ACCESS_ALL": {
+    "number": 55,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "CHATS_ACCESS_ASSIGNED": {
+    "number": 56,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "CHATS_DELETE": {
+    "number": 57,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "MESSAGES_SEND_TO_ASSIGNED": {
+    "number": 58,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "MESSAGES_SEND_TO_ALL": {
+    "number": 59,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "MESSAGES_SCHEDULE": {
+    "number": 60,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "MESSAGES_DELETE": {
+    "number": 61,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "GROUPS_CREATE": {
+    "number": 62,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "GROUPS_UPDATE": {
+    "number": 63,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "NOTES": {
+    "number": 64,
+    "description": "",
+    "features": ["team-inbox"]
+  },
+  "NOTIFICATION_READ": {
+    "number": 66,
+    "description": "",
+    "features": ["notifications"]
+  },
+  "NOTIFICATION_CREATE": {
+    "number": 67,
+    "description": "",
+    "features": ["notifications"]
+  },
+  "NOTIFICATION_UPDATE": {
+    "number": 68,
+    "description": "",
+    "features": ["notifications"]
+  },
+  "NOTIFICATION_DELETE": {
+    "number": 69,
+    "description": "",
+    "features": ["notifications"]
+  },
+  "INTEGRATIONS_UPDATE": {
+    "number": 71,
+    "description": "",
+    "features": ["notifications"]
+  },
+  "ADMIN_PANEL_ACCESS": {
+    "number": 72,
+    "description": "Access admin level functionality",
+    "features": []
+  },
+  "PAYMENTS": {
+    "number": 79,
+    "description": "Make and update payments",
+    "features": []
+  },
+  "WA_LIVE_EVENTS": {
+    "number": 80,
+    "description": "",
+    "features": ["team-inbox"]
+  }
+}
