@@ -481,7 +481,8 @@ export enum Scope {
     IntegrationsUpdate = 'INTEGRATIONS_UPDATE',
     AdminPanelAccess = 'ADMIN_PANEL_ACCESS',
     Payments = 'PAYMENTS',
-    WaLiveEvents = 'WA_LIVE_EVENTS'
+    WaLiveEvents = 'WA_LIVE_EVENTS',
+    ChatdaddyHook = 'CHATDADDY_HOOK'
 }
 
 /**

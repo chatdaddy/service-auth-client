@@ -241,5 +241,10 @@
     "number": 80,
     "description": "",
     "features": ["team-inbox"]
+  },
+  "CHATDADDY_HOOK": {
+    "number": 53,
+    "description": "Read/Update API Web hooks",
+    "features": []
   }
 }
