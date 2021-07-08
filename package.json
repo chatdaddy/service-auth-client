@@ -7,6 +7,9 @@
   "optionalDependencies": {
     "jsonwebtoken": "^8.5.1"
   },
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^14.6.2",
