@@ -5,7 +5,6 @@
     "allowJs": true,
     "checkJs": false,
     "outDir": "lib",
-    
     "strict": false,
     "noImplicitThis": true,
     "esModuleInterop": true,

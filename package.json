@@ -7,6 +7,7 @@
   "optionalDependencies": {
     "jsonwebtoken": "^8.5.1"
   },
+  "main": "lib/index",
   "files": [
     "lib"
   ],
