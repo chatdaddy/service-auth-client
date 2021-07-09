@@ -480,7 +480,8 @@ export enum Scope {
     NotificationDelete = 'NOTIFICATION_DELETE',
     IntegrationsUpdate = 'INTEGRATIONS_UPDATE',
     AdminPanelAccess = 'ADMIN_PANEL_ACCESS',
-    Payments = 'PAYMENTS',
+    PaymentsRead = 'PAYMENTS_READ',
+    PaymentsUpdate = 'PAYMENTS_UPDATE',
     WaLiveEvents = 'WA_LIVE_EVENTS',
     ChatdaddyHook = 'CHATDADDY_HOOK'
 }

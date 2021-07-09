@@ -2,249 +2,572 @@
   "WA_STATE": {
     "number": 0,
     "description": "Open, close, logout from your WA account on ChatDaddy",
-    "features": ["team-inbox"]
+    "group": "whatsapp",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ]
   },
   "CONTACTS_READ_ASSIGNED": {
     "number": 2,
     "description": "Read contacts assigned to you",
-    "features": ["team-inbox"]
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Contacts Access"
   },
   "CONTACTS_READ_ALL": {
     "number": 3,
     "description": "Read all contacts",
-    "features": ["team-inbox"]
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor",
+      "viewer"
+    ],
+    "group": "Contacts Access"
   },
   "CONTACTS_CREATE": {
     "number": 4,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the creation of contacts",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Contacts Access"
   },
   "CONTACTS_DELETE": {
     "number": 5,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the deletion of contacts",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Contacts Access"
   },
   "CONTACTS_UPDATE": {
     "number": 6,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the updating of contacts",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Contacts Access"
   },
   "CAMPAIGNS_READ": {
     "number": 7,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the reading of Broadcast Campaigns",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "group": "Broadcast Campaign Access"
   },
   "CAMPAIGNS_CREATE": {
     "number": 8,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the creation of Broadcast Campaigns",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Broadcast Campaign Access"
   },
   "CAMPAIGNS_DELETE": {
     "number": 9,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the deletion of Broadcast Campaigns",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Broadcast Campaign Access"
   },
   "CAMPAIGNS_UPDATE": {
     "number": 10,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the updating of Broadcast Campaigns",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Broadcast Campaign Access"
   },
   "KEYWORD_READ": {
     "number": 11,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the reading of Automated Keyword Replies",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "group": "Automated Keyword Reply Access"
   },
   "KEYWORD_CREATE": {
     "number": 12,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the creation of Automated Keyword Replies",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Automated Keyword Reply Access"
   },
   "KEYWORD_DELETE": {
     "number": 13,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the deletion of Automated Keyword Replies",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Automated Keyword Reply Access"
   },
   "KEYWORD_UPDATE": {
     "number": 14,
-    "description": "",
-    "features": ["marketing"]
+    "description": "Allow the updating of Automated Keyword Replies",
+    "features": [
+      "marketing"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Automated Keyword Reply Access"
   },
   "FLOWS_READ": {
     "number": 15,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the reading of Message Templates",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "group": "Message Template Access"
   },
   "FLOWS_CREATE": {
     "number": 16,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the creation of Message Templates",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Message Template Access"
   },
   "FLOWS_DELETE": {
     "number": 17,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the deletion of Message Templates",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Message Template Access"
   },
   "FLOWS_UPDATE": {
     "number": 18,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the updating of Message Templates",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Message Template Access"
   },
   "TAGS_READ": {
     "number": 19,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Can read tags",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "group": "Tag Access"
   },
   "TAGS_CREATE": {
     "number": 20,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the creation of Tags",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Tag Access"
   },
   "TAGS_DELETE": {
     "number": 21,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the deletion of Tags",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Tag Access"
   },
   "TOKENS_READ": {
     "number": 22,
     "description": "Read all tokens belonging to your account",
     "irrevokable": true,
-    "features": []
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TOKENS_DELETE": {
     "number": 23,
-    "description": "Delete a refresh token belonging to your account",
+    "description": "Delete a token belonging to your account",
     "irrevokable": true,
-    "features": []
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "USERS_PATCH": {
     "number": 24,
-    "description": "Update your info",
+    "description": "Update your personal info",
     "irrevokable": true,
-    "features": []
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TEAM_UPDATE": {
     "number": 29,
-    "description": "",
-    "features": []
+    "description": "Modify the details of the team",
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TEAMLINK_CREATE": {
     "number": 38,
-    "description": "",
-    "features": []
+    "description": "Create a new invite link for your team",
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TEAMLINK_READ": {
     "number": 39,
     "description": "Read invite links of the team",
-    "features": []
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TEAMMEMBERS_UPDATE": {
     "number": 30,
-    "description": "",
-    "features": []
+    "description": "Update/delete team members",
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TEAMMEMBERS_READ": {
     "number": 40,
-    "description": "",
-    "features": []
+    "description": "Read the members of your team",
+    "features": [],
+    "roles": [
+      "admin"
+    ]
   },
   "TEAM_NOTIFY": {
     "number": 52,
-    "description": "",
-    "features": []
+    "description": "Allow the notifying of Teams",
+    "features": [],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Team Notify Access"
   },
   "CHATS_ACCESS_ALL": {
     "number": 55,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the access of All Chats",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor",
+      "viewer"
+    ],
+    "group": "Chat Access"
   },
   "CHATS_ACCESS_ASSIGNED": {
     "number": 56,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the access of assigned Chats",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Chat Access"
   },
   "CHATS_DELETE": {
     "number": 57,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the deletion of Chats",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Chat Access"
   },
   "MESSAGES_SEND_TO_ASSIGNED": {
     "number": 58,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the sending of Messages to Assigned",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Messages Access"
   },
   "MESSAGES_SEND_TO_ALL": {
     "number": 59,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the access of Messages to All",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Messages Access"
   },
   "MESSAGES_SCHEDULE": {
     "number": 60,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the scheduling of Messages",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Messages Access"
   },
   "MESSAGES_DELETE": {
     "number": 61,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the deletion of Messages",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Messages Access"
   },
   "GROUPS_CREATE": {
     "number": 62,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the creating of Groups",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Groups Access"
   },
   "GROUPS_UPDATE": {
     "number": 63,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the updating of Groups",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Groups Access"
   },
   "NOTES": {
     "number": 64,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Allow the usage of Notes",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "admin",
+      "agent",
+      "editor"
+    ],
+    "group": "Notes Access"
   },
   "NOTIFICATION_READ": {
     "number": 66,
-    "description": "",
-    "features": ["notifications"]
+    "description": "Allow the reading of Notifications",
+    "features": [
+      "notifications"
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "group": "Notifications Access"
   },
   "NOTIFICATION_CREATE": {
     "number": 67,
-    "description": "",
-    "features": ["notifications"]
+    "description": "Allow the creation of Notifications",
+    "features": [
+      "notifications"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Notifications Access"
   },
   "NOTIFICATION_UPDATE": {
     "number": 68,
-    "description": "",
-    "features": ["notifications"]
+    "description": "Allow the updating of Notifications",
+    "features": [
+      "notifications"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Notifications Access"
   },
   "NOTIFICATION_DELETE": {
     "number": 69,
-    "description": "",
-    "features": ["notifications"]
+    "description": "Allow the deletion of Notifications",
+    "features": [
+      "notifications"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Notifications Access"
   },
   "INTEGRATIONS_UPDATE": {
     "number": 71,
-    "description": "",
-    "features": ["notifications"]
+    "description": "Update private integrations for notifications API",
+    "features": [
+      "notifications"
+    ],
+    "roles": [
+      "admin"
+    ],
+    "group": "API"
   },
   "ADMIN_PANEL_ACCESS": {
     "number": 72,
     "description": "Access admin level functionality",
-    "features": []
+    "features": [],
+    "roles": []
   },
-  "PAYMENTS": {
+  "PAYMENTS_READ": {
+    "number": 78,
+    "description": "Read payments",
+    "features": [],
+    "roles": [
+      "admin"
+    ],
+    "group": "Payments"
+  },
+  "PAYMENTS_UPDATE": {
     "number": 79,
-    "description": "Make and update payments",
-    "features": []
+    "description": "Update/make new payments",
+    "features": [],
+    "roles": [
+      "admin"
+    ],
+    "group": "Payments"
   },
   "WA_LIVE_EVENTS": {
     "number": 80,
-    "description": "",
-    "features": ["team-inbox"]
+    "description": "Can this person receive live events of this account",
+    "features": [
+      "team-inbox"
+    ],
+    "roles": [
+      "viewer"
+    ],
+    "group": "WhatsApp Access"
   },
   "CHATDADDY_HOOK": {
     "number": 53,
     "description": "Read/Update API Web hooks",
-    "features": []
+    "features": [],
+    "roles": [
+      "admin"
+    ],
+    "group": "API"
   }
 }
