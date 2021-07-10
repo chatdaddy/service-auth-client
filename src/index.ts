@@ -41,7 +41,7 @@ export const decodeToken = (token: string) => {
 	return JSON.parse(str || '') as JWT
 }
 
-export const expiryDateOfToken = (jwt: JWT) => (new Date(jwt.iat * 1000))
+export const expiryDateOfToken = (jwt: JWT) => (new Date(jwt.exp * 1000))
 
 export const hasScope = (user: JWT, scope: Scope) => (
 	user.scope[SCOPES[scope]?.number] === '1'
