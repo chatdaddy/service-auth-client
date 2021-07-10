@@ -96,9 +96,8 @@ export const makeAccessTokenFactory = (
 	return async (teamId?: string) => {
 		const key = teamId || refreshToken
 		let task = tokenCache[key]
-		let result = await task
 		// either doesn't exist or expired
-		if (!result || result.expiresAt.getTime() < Date.now()) {
+		if (!task || !(await task) || (await task)?.expiresAt.getTime() < Date.now()) {
 			task = (async () => {
 				const fetch = await tokenAPI.tokenPost({
 					refreshToken,
@@ -116,7 +115,6 @@ export const makeAccessTokenFactory = (
 			//@ts-ignore
 			tokenCache[key] = task.catch(() => { delete tokenCache[key] })
 		}
-		result = await task
-		return result
+		return task
 	}
 }
