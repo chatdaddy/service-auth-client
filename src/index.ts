@@ -97,23 +97,27 @@ export const makeAccessTokenFactory = (
 		const key = teamId || refreshToken
 		let task = tokenCache[key]
 		// either doesn't exist or expired
-		if (!task || !(await task) || (await task)?.expiresAt.getTime() < Date.now()) {
-			task = (async () => {
-				const fetch = await tokenAPI.tokenPost({
-					refreshToken,
-					scopes,
-					teamId: teamId as any
-				})
-				const { data: { access_token } } = await fetch()
-				const jwt = decodeToken(access_token)
-				const expiresAt = expiryDateOfToken(jwt)
-				return {
-					token: access_token,
-					expiresAt
-				}
-			})()
-			//@ts-ignore
-			tokenCache[key] = task.catch(() => { delete tokenCache[key] })
+		if (!(await task) || (await task)?.expiresAt.getTime() < Date.now()) {
+			if(tokenCache[key]) {
+				task = tokenCache[key]
+			} else {
+				task = (async () => {
+					const fetch = await tokenAPI.tokenPost({
+						refreshToken,
+						scopes,
+						teamId: teamId as any
+					})
+					const { data: { access_token } } = await fetch()
+					const jwt = decodeToken(access_token)
+					const expiresAt = expiryDateOfToken(jwt)
+					return {
+						token: access_token,
+						expiresAt
+					}
+				})()
+				//@ts-ignore
+				tokenCache[key] = task.catch(() => { delete tokenCache[key] })
+			}
 		}
 		return task
 	}
