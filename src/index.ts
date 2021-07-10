@@ -73,12 +73,19 @@ export const validateUserScopes = (user: JWT, ...scopes: Scope[]) => {
 
 export const makeAccessTokenFactory = (
 	refreshToken: string,
-	scopes?: Scope[]
+	scopes?: Scope[],
+	existingTokens: string[] = []
 ) => {
 	const tokenAPI = OAuthApiFp()
-	const tokenCache: { [_: string]: Promise<{ token: string, expiresAt: Date }> } = {
-
-	}
+	const tokenCache: { [_: string]: Promise<{ token: string, expiresAt: Date }> } = 
+		existingTokens.reduce((dict, token) => {
+			const jwt = decodeToken(token)
+			const expiresAt = expiryDateOfToken(jwt)
+			if(expiresAt.getTime() > Date.now()) {
+				dict[jwt.user.teamId] = Promise.resolve({ token, expiresAt })
+			}
+			return dict
+		}, {})
 
 	return async (teamId?: string) => {
 		const key = teamId || refreshToken
