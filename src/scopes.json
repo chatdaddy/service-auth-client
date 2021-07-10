@@ -562,7 +562,7 @@
     "group": "WhatsApp Access"
   },
   "CHATDADDY_HOOK": {
-    "number": 53,
+    "number": 65,
     "description": "Read/Update API Web hooks",
     "features": [],
     "roles": [
