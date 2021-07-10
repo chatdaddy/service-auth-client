@@ -28,7 +28,7 @@ export const generateBinaryString = (scopes: Scope[]) => {
 
 let verifyJWT: typeof verify
 export const verifyToken = (token: string) => {
-	if (!verifyToken) {
+	if (!verifyJWT) {
 		verifyJWT = require('jsonwebtoken').verify
 	}
 	const user = verifyJWT(token, PUBLIC_KEY, { algorithms: ['ES256'] }) as JWT
