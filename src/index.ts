@@ -1,6 +1,6 @@
 export * from './OpenAPI/Auth'
 import type { verify } from 'jsonwebtoken'
-import { JWT, OAuthApiFp, Scope } from './OpenAPI/Auth'
+import { Configuration, JWT, OAuthApiFp, Scope } from './OpenAPI/Auth'
 import SCOPES from './scopes.json'
 
 const PUBLIC_KEY = `
@@ -71,12 +71,18 @@ export const validateUserScopes = (user: JWT, ...scopes: Scope[]) => {
 	return { authorized, missingScopes }
 }
 
-export const makeAccessTokenFactory = (
+export type AccessTokenFactoryOptions = {
 	refreshToken: string,
 	scopes?: Scope[],
-	existingTokens: string[] = []
+	existingTokens?: string[]
+	config: Configuration
+}
+
+export const makeAccessTokenFactory = (
+	{ refreshToken, scopes, existingTokens, config }: AccessTokenFactoryOptions
 ) => {
-	const tokenAPI = OAuthApiFp()
+	existingTokens = existingTokens || []
+	const tokenAPI = OAuthApiFp(config)
 	const tokenCache: { [_: string]: Promise<{ token: string, expiresAt: Date }> } = 
 		existingTokens.reduce((dict, token) => {
 			const jwt = decodeToken(token)
