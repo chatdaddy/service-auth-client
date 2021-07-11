@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * ChatDaddy Auth Service
+ * ChatDaddy Auth & Teams Service
  * Manage Users & Teams
  *
  * The version of the OpenAPI document: 1.0.0

@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * ChatDaddy Auth Service
+ * ChatDaddy Auth & Teams Service
  * Manage Users & Teams
  *
  * The version of the OpenAPI document: 1.0.0
@@ -18,7 +18,7 @@ import { Configuration } from "./configuration";
 // @ts-ignore
 import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
 
-export const BASE_PATH = "https://api-auth.chatdaddy.tech".replace(/\/+$/, "");
+export const BASE_PATH = "https://api-teams.chatdaddy.tech".replace(/\/+$/, "");
 
 /**
  *
