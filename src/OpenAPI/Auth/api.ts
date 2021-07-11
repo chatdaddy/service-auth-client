@@ -414,6 +414,12 @@ export interface RefreshTokenLoginRequest {
      * @memberof RefreshTokenLoginRequest
      */
     scopes?: Array<Scope>;
+    /**
+     * Should fetching the token of a new team update the lastUsedTeam for login
+     * @type {boolean}
+     * @memberof RefreshTokenLoginRequest
+     */
+    updateLastUsedTeam?: boolean;
 }
 /**
  * 
