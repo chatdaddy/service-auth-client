@@ -1,6 +1,6 @@
 export * from './OpenAPI/Auth'
 import type { verify } from 'jsonwebtoken'
-import { Configuration, ConfigurationParameters, JWT, OAuthApiFp, RefreshTokenLoginRequest, Scope } from './OpenAPI/Auth'
+import { Configuration, ConfigurationParameters, JWT, OAuthApi, RefreshTokenLoginRequest, Scope } from './OpenAPI/Auth'
 import SCOPES from './scopes.json'
 
 const PUBLIC_KEY = `
@@ -72,7 +72,7 @@ export const validateUserScopes = (user: JWT, ...scopes: Scope[]) => {
 }
 
 export type AccessTokenFactoryOptions = {
-	request: RefreshTokenLoginRequest
+	request: Omit<RefreshTokenLoginRequest, 'teamId'>
 	existingTokens?: string[]
 	config?: ConfigurationParameters
 }
@@ -81,7 +81,7 @@ export const makeAccessTokenFactory = (
 	{ request, existingTokens, config }: AccessTokenFactoryOptions
 ) => {
 	existingTokens = existingTokens || []
-	const tokenAPI = OAuthApiFp(new Configuration(config || {}))
+	const tokenAPI = new OAuthApi(new Configuration(config || {}))
 	const tokenCache: { [_: string]: Promise<{ token: string, expiresAt: Date }> } = 
 		existingTokens.reduce((dict, token) => {
 			const jwt = decodeToken(token)
@@ -92,8 +92,8 @@ export const makeAccessTokenFactory = (
 			return dict
 		}, {})
 
-	return async (teamId?: string) => {
-		const key = teamId || request.refreshToken
+	return async (teamId: string) => {
+		const key = teamId
 		let task = tokenCache[key]
 		// either doesn't exist or expired
 		if (!(await task) || (await task)?.expiresAt.getTime() < Date.now()) {
@@ -101,11 +101,9 @@ export const makeAccessTokenFactory = (
 				task = tokenCache[key]
 			} else {
 				task = (async () => {
-					const fetch = await tokenAPI.tokenPost({
-						...request,
-						teamId: teamId as any
-					})
-					const { data: { access_token } } = await fetch()
+					const { data: { access_token } } = await tokenAPI.tokenPost(
+						{ ...request, teamId }
+					)
 					const jwt = decodeToken(access_token)
 					const expiresAt = expiryDateOfToken(jwt)
 					return {
