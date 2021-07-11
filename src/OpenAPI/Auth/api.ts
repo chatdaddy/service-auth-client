@@ -358,6 +358,12 @@ export interface PasswordAuthRequest {
      * @memberof PasswordAuthRequest
      */
     scopes?: Array<Scope>;
+    /**
+     * Should logging in with this team ID update the lastUsedTeam for login
+     * @type {boolean}
+     * @memberof PasswordAuthRequest
+     */
+    updateLastUsedTeam?: boolean;
 }
 /**
  * A refresh token allows you to generate access tokens to access & update things on ChatDaddy services. A refresh token will expire and become invalidated after 14 days of no activity. 
