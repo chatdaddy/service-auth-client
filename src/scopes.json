@@ -1,15 +1,15 @@
 {
   "WA_STATE": {
     "number": 0,
-    "description": "Open, close, logout from your WA account on ChatDaddy",
-    "group": "whatsapp",
+    "description": "Open, close, logout from your WA account",
     "features": [
       "team-inbox"
     ],
     "roles": [
       "admin",
       "editor"
-    ]
+    ],
+    "group": "WhatsApp Access"
   },
   "CONTACTS_READ_ASSIGNED": {
     "number": 2,
@@ -232,7 +232,7 @@
       "editor",
       "viewer"
     ],
-    "group": "Tag Access"
+    "group": "Tags Access"
   },
   "TAGS_CREATE": {
     "number": 20,
@@ -244,7 +244,7 @@
       "admin",
       "editor"
     ],
-    "group": "Tag Access"
+    "group": "Tags Access"
   },
   "TAGS_DELETE": {
     "number": 21,
@@ -256,7 +256,7 @@
       "admin",
       "editor"
     ],
-    "group": "Tag Access"
+    "group": "Tags Access"
   },
   "TOKENS_READ": {
     "number": 22,
@@ -265,7 +265,8 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": null
   },
   "TOKENS_DELETE": {
     "number": 23,
@@ -274,7 +275,8 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": null
   },
   "USERS_PATCH": {
     "number": 24,
@@ -283,7 +285,8 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": null
   },
   "TEAM_UPDATE": {
     "number": 29,
@@ -291,15 +294,17 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": "Team Access"
   },
   "TEAMLINK_CREATE": {
     "number": 38,
-    "description": "Create a new invite link for your team",
+    "description": "Create a new invite link for the team",
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": "Team Access"
   },
   "TEAMLINK_READ": {
     "number": 39,
@@ -307,7 +312,8 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": "Team Access"
   },
   "TEAMMEMBERS_UPDATE": {
     "number": 30,
@@ -315,7 +321,8 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": "Team Access"
   },
   "TEAMMEMBERS_READ": {
     "number": 40,
@@ -323,7 +330,8 @@
     "features": [],
     "roles": [
       "admin"
-    ]
+    ],
+    "group": "Team Access"
   },
   "TEAM_NOTIFY": {
     "number": 52,
@@ -333,7 +341,7 @@
       "admin",
       "editor"
     ],
-    "group": "Team Notify Access"
+    "group": "Team Access"
   },
   "CHATS_ACCESS_ALL": {
     "number": 55,
@@ -530,7 +538,8 @@
     "number": 72,
     "description": "Access admin level functionality",
     "features": [],
-    "roles": []
+    "roles": [],
+    "grouo": null
   },
   "PAYMENTS_READ": {
     "number": 78,
