@@ -164,6 +164,37 @@ export interface InlineResponse2004 {
 /**
  * 
  * @export
+ * @interface InlineResponse400
+ */
+export interface InlineResponse400 {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse400
+     */
+    statusCode?: number;
+    /**
+     * Specific description of the error
+     * @type {string}
+     * @memberof InlineResponse400
+     */
+    error?: string;
+    /**
+     * What the error was
+     * @type {string}
+     * @memberof InlineResponse400
+     */
+    message?: string;
+    /**
+     * Some extra information about the error
+     * @type {object}
+     * @memberof InlineResponse400
+     */
+    data?: object;
+}
+/**
+ * 
+ * @export
  * @interface InviteLink
  */
 export interface InviteLink {
