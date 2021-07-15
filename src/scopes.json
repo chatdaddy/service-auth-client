@@ -566,7 +566,10 @@
       "team-inbox"
     ],
     "roles": [
-      "viewer"
+      "viewer",
+      "admin",
+      "agent",
+      "editor"
     ],
     "group": "WhatsApp Access"
   },
