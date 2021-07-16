@@ -82,7 +82,7 @@ export const makeAccessTokenFactory = (
 ) => {
 	existingTokens = existingTokens || []
 	const tokenAPI = new OAuthApi(new Configuration(config || {}))
-	const tokenCache: { [_: string]: Promise<{ token: string, expiresAt: Date }> } = 
+	const tokenCache: { [_: string]: { token: Promise<string>, expiresAt: Date | undefined } } = 
 		existingTokens.reduce((dict, token) => {
 			const jwt = decodeToken(token)
 			const expiresAt = expiryDateOfToken(jwt)
@@ -95,27 +95,31 @@ export const makeAccessTokenFactory = (
 	return async (teamId: string) => {
 		const key = teamId
 		let task = tokenCache[key]
-		// either doesn't exist or expired
-		// + 1000 for some margin
-		if (!(await task) || ((await task)?.expiresAt.getTime() + 1000) < Date.now()) {
-			if(tokenCache[key]) {
-				task = tokenCache[key]
-			} else {
-				task = (async () => {
-					const { data: { access_token } } = await tokenAPI.tokenPost(
-						{ ...request, teamId }
-					)
-					const jwt = decodeToken(access_token)
-					const expiresAt = expiryDateOfToken(jwt)
-					return {
-						token: access_token,
-						expiresAt
+		if(!task || (!!task.expiresAt && (task.expiresAt?.getTime() < Date.now()))) {
+			tokenCache[key] = {
+				token: (async () => {
+					try {
+						const { data: { access_token } } = await tokenAPI.tokenPost(
+							{ ...request, teamId }
+						)
+						const jwt = decodeToken(access_token)
+						const expiresAt = expiryDateOfToken(jwt)
+						if(tokenCache[key]) {
+							tokenCache[key]!.expiresAt = expiresAt
+						}
+						return access_token
+					} catch(error) {
+						delete tokenCache[key]
 					}
-				})()
-				//@ts-ignore
-				tokenCache[key] = task.catch(() => { delete tokenCache[key] })
+				})(),
+				expiresAt: undefined
 			}
 		}
-		return task
+		const result = tokenCache[key]
+		const token = await result?.token
+		if(!token) {
+			throw new Error('failed to obtain token')
+		}
+		return { token, expiresAt: result.expiresAt }
 	}
 }
