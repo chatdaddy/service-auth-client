@@ -96,7 +96,8 @@ export const makeAccessTokenFactory = (
 		const key = teamId
 		let task = tokenCache[key]
 		// either doesn't exist or expired
-		if (!(await task) || (await task)?.expiresAt.getTime() < Date.now()) {
+		// + 1000 for some margin
+		if (!(await task) || ((await task)?.expiresAt.getTime() + 1000) < Date.now()) {
 			if(tokenCache[key]) {
 				task = tokenCache[key]
 			} else {
