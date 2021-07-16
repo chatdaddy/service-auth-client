@@ -1954,11 +1954,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * 
          * @summary Reset user password
+         * @param {string} [userId] Change the password of this user ID
          * @param {ResetPassword} [resetPassword] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPasswordPatch: async (resetPassword?: ResetPassword, options: any = {}): Promise<RequestArgs> => {
+        usersPasswordPatch: async (userId?: string, resetPassword?: ResetPassword, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/users/password`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1977,6 +1978,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication otp required
             await setApiKeyToObject(localVarHeaderParameter, "X-OTP", configuration)
+
+            if (userId !== undefined) {
+                localVarQueryParameter['userId'] = userId;
+            }
 
 
     
@@ -2110,12 +2115,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Reset user password
+         * @param {string} [userId] Change the password of this user ID
          * @param {ResetPassword} [resetPassword] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersPasswordPatch(resetPassword?: ResetPassword, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersPasswordPatch(resetPassword, options);
+        async usersPasswordPatch(userId?: string, resetPassword?: ResetPassword, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.usersPasswordPatch(userId, resetPassword, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2177,12 +2183,13 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * 
          * @summary Reset user password
+         * @param {string} [userId] Change the password of this user ID
          * @param {ResetPassword} [resetPassword] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPasswordPatch(resetPassword?: ResetPassword, options?: any): AxiosPromise<void> {
-            return localVarFp.usersPasswordPatch(resetPassword, options).then((request) => request(axios, basePath));
+        usersPasswordPatch(userId?: string, resetPassword?: ResetPassword, options?: any): AxiosPromise<void> {
+            return localVarFp.usersPasswordPatch(userId, resetPassword, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2245,13 +2252,14 @@ export class UsersApi extends BaseAPI {
     /**
      * 
      * @summary Reset user password
+     * @param {string} [userId] Change the password of this user ID
      * @param {ResetPassword} [resetPassword] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersPasswordPatch(resetPassword?: ResetPassword, options?: any) {
-        return UsersApiFp(this.configuration).usersPasswordPatch(resetPassword, options).then((request) => request(this.axios, this.basePath));
+    public usersPasswordPatch(userId?: string, resetPassword?: ResetPassword, options?: any) {
+        return UsersApiFp(this.configuration).usersPasswordPatch(userId, resetPassword, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
