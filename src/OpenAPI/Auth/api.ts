@@ -895,6 +895,18 @@ export interface UserPatch {
      * @memberof UserPatch
      */
     notify?: NotifyModel;
+    /**
+     * Phone number. Only admin access can modify
+     * @type {number}
+     * @memberof UserPatch
+     */
+    phoneNumber?: number;
+    /**
+     * new password. Only admin access can modify
+     * @type {string}
+     * @memberof UserPatch
+     */
+    password?: string;
 }
 
 /**
@@ -2000,11 +2012,12 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * 
          * @summary Update the user in the access token
+         * @param {string} [userId] Change the password of this user ID
          * @param {UserPatch} [userPatch] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPatch: async (userPatch?: UserPatch, options: any = {}): Promise<RequestArgs> => {
+        usersPatch: async (userId?: string, userPatch?: UserPatch, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2020,6 +2033,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             // authentication chatdaddy required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "chatdaddy", ["USERS_PATCH"], configuration)
+
+            if (userId !== undefined) {
+                localVarQueryParameter['userId'] = userId;
+            }
 
 
     
@@ -2127,12 +2144,13 @@ export const UsersApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Update the user in the access token
+         * @param {string} [userId] Change the password of this user ID
          * @param {UserPatch} [userPatch] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersPatch(userPatch?: UserPatch, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersPatch(userPatch, options);
+        async usersPatch(userId?: string, userPatch?: UserPatch, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.usersPatch(userId, userPatch, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2194,12 +2212,13 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * 
          * @summary Update the user in the access token
+         * @param {string} [userId] Change the password of this user ID
          * @param {UserPatch} [userPatch] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPatch(userPatch?: UserPatch, options?: any): AxiosPromise<User> {
-            return localVarFp.usersPatch(userPatch, options).then((request) => request(axios, basePath));
+        usersPatch(userId?: string, userPatch?: UserPatch, options?: any): AxiosPromise<User> {
+            return localVarFp.usersPatch(userId, userPatch, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2265,13 +2284,14 @@ export class UsersApi extends BaseAPI {
     /**
      * 
      * @summary Update the user in the access token
+     * @param {string} [userId] Change the password of this user ID
      * @param {UserPatch} [userPatch] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersPatch(userPatch?: UserPatch, options?: any) {
-        return UsersApiFp(this.configuration).usersPatch(userPatch, options).then((request) => request(this.axios, this.basePath));
+    public usersPatch(userId?: string, userPatch?: UserPatch, options?: any) {
+        return UsersApiFp(this.configuration).usersPatch(userId, userPatch, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
