@@ -76,21 +76,21 @@ export type AccessTokenFactoryOptions = {
 	existingTokens?: string[]
 	config?: ConfigurationParameters
 }
-
+type TokenCache = { [_: string]: { token: Promise<string>, expiresAt: Date | undefined } }
 export const makeAccessTokenFactory = (
 	{ request, existingTokens, config }: AccessTokenFactoryOptions
 ) => {
 	existingTokens = existingTokens || []
 	const tokenAPI = new OAuthApi(new Configuration(config || {}))
-	const tokenCache: { [_: string]: { token: Promise<string>, expiresAt: Date | undefined } } = 
+	const tokenCache: TokenCache = 
 		existingTokens.reduce((dict, token) => {
 			const jwt = decodeToken(token)
 			const expiresAt = expiryDateOfToken(jwt)
 			if(expiresAt.getTime() > Date.now()) {
-				dict[jwt.user.teamId] = Promise.resolve({ token, expiresAt })
+				dict[jwt.user.teamId] = { token: Promise.resolve(token), expiresAt }
 			}
 			return dict
-		}, {})
+		}, {} as TokenCache)
 
 	return async (teamId: string) => {
 		const key = teamId
