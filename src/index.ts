@@ -76,7 +76,7 @@ export type AccessTokenFactoryOptions = {
 	existingTokens?: string[]
 	config?: ConfigurationParameters
 }
-type TokenCache = { [_: string]: { token: Promise<string>, expiresAt: Date | undefined } }
+type TokenCache = { [_: string]: { token: Promise<string | { error: Error }>, expiresAt: Date | undefined } }
 export const makeAccessTokenFactory = (
 	{ request, existingTokens, config }: AccessTokenFactoryOptions
 ) => {
@@ -110,15 +110,16 @@ export const makeAccessTokenFactory = (
 						return access_token
 					} catch(error) {
 						delete tokenCache[key]
+						return { error }
 					}
 				})(),
 				expiresAt: undefined
 			}
 		}
 		const result = tokenCache[key]
-		const token = await result?.token
-		if(!token) {
-			throw new Error('failed to obtain token')
+		const token = await result!.token
+		if(typeof token === 'object') {
+			throw token.error
 		}
 		return { token, expiresAt: result.expiresAt }
 	}
