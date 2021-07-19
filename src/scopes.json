@@ -264,7 +264,10 @@
     "irrevokable": true,
     "features": [],
     "roles": [
-      "admin"
+      "admin",
+      "agent",
+      "viewer",
+      "editor"
     ],
     "group": null
   },
@@ -274,7 +277,10 @@
     "irrevokable": true,
     "features": [],
     "roles": [
-      "admin"
+      "admin",
+      "agent",
+      "viewer",
+      "editor"
     ],
     "group": null
   },
@@ -284,7 +290,10 @@
     "irrevokable": true,
     "features": [],
     "roles": [
-      "admin"
+      "admin",
+      "agent",
+      "viewer",
+      "editor"
     ],
     "group": null
   },
