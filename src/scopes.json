@@ -172,7 +172,7 @@
     ],
     "group": "Automated Keyword Reply Access"
   },
-  "FLOWS_READ": {
+  "TEMPLATES_READ": {
     "number": 15,
     "description": "Allow the reading of Message Templates",
     "features": [
@@ -185,7 +185,7 @@
     ],
     "group": "Message Template Access"
   },
-  "FLOWS_CREATE": {
+  "TEMPLATES_CREATE": {
     "number": 16,
     "description": "Allow the creation of Message Templates",
     "features": [
@@ -197,7 +197,7 @@
     ],
     "group": "Message Template Access"
   },
-  "FLOWS_DELETE": {
+  "TEMPLATES_DELETE": {
     "number": 17,
     "description": "Allow the deletion of Message Templates",
     "features": [
@@ -209,7 +209,7 @@
     ],
     "group": "Message Template Access"
   },
-  "FLOWS_UPDATE": {
+  "TEMPLATES_UPDATE": {
     "number": 18,
     "description": "Allow the updating of Message Templates",
     "features": [
