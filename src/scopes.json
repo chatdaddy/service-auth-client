@@ -13,7 +13,7 @@
   },
   "CONTACTS_READ_ASSIGNED": {
     "number": 2,
-    "description": "Read contacts assigned to you",
+    "description": "Read profile contacts",
     "features": [
       "team-inbox"
     ],
@@ -26,7 +26,7 @@
   },
   "CONTACTS_READ_ALL": {
     "number": 3,
-    "description": "Read all contacts",
+    "description": "Read Audience contacts",
     "features": [
       "team-inbox"
     ],
