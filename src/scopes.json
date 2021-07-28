@@ -338,7 +338,10 @@
     "description": "Read the members of your team",
     "features": [],
     "roles": [
-      "admin"
+      "admin",
+      "editor",
+      "viewer",
+      "agent"
     ],
     "group": "Team Access"
   },
