@@ -1,6 +1,6 @@
 # service-auth-client
 
-ChatDaddy Auth SDK for Typescript
+ChatDaddy Authentication & Team Management SDK for NodeJS/Browser
 
 ## Refresh Tokens and Generating Them
 
