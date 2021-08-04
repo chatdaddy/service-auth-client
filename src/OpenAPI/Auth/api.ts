@@ -541,6 +541,7 @@ export enum Scope {
     TokensRead = 'TOKENS_READ',
     TokensDelete = 'TOKENS_DELETE',
     UsersPatch = 'USERS_PATCH',
+    ReferralApplyCredit = 'REFERRAL_APPLY_CREDIT',
     TeamUpdate = 'TEAM_UPDATE',
     TeamlinkCreate = 'TEAMLINK_CREATE',
     TeamlinkRead = 'TEAMLINK_READ',

@@ -297,6 +297,15 @@
     ],
     "group": null
   },
+  "REFERRAL_APPLY_CREDIT": {
+    "number": 25,
+    "description": "Apply credit to coupon code from pending credit",
+    "features": [],
+    "roles": [
+      "admin"
+    ],
+    "group": "Referrals"
+  },
   "TEAM_UPDATE": {
     "number": 29,
     "description": "Modify the details of the team",
