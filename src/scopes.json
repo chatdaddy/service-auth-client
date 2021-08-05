@@ -15,7 +15,7 @@
     "number": 2,
     "description": "Read profile contacts",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -28,7 +28,7 @@
     "number": 3,
     "description": "Read Audience contacts",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -42,7 +42,7 @@
     "number": 4,
     "description": "Allow the creation of contacts",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -54,7 +54,7 @@
     "number": 5,
     "description": "Allow the deletion of contacts",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -66,7 +66,7 @@
     "number": 6,
     "description": "Allow the updating of contacts",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -225,7 +225,7 @@
     "number": 19,
     "description": "Can read tags",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -238,7 +238,7 @@
     "number": 20,
     "description": "Allow the creation of Tags",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
@@ -250,7 +250,7 @@
     "number": 21,
     "description": "Allow the deletion of Tags",
     "features": [
-      "team-inbox"
+      "audience"
     ],
     "roles": [
       "admin",
