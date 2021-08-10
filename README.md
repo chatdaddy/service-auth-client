@@ -2,6 +2,20 @@
 
 ChatDaddy Authentication & Team Management SDK for NodeJS/Browser
 
+## Installing the Package
+
+Using NPM:
+```
+npm i git+https://github.com/chatdaddy/service-auth-client
+```
+
+Using yarn:
+```
+yarn add git+https://github.com/chatdaddy/service-auth-client
+```
+
+
+
 ## Refresh Tokens and Generating Them
 
 We recommend you use refresh tokens to generate these short lived access tokens. The refresh token is immune to password changes & prevents you from ever entering the password in plaintext. The refresh token automatically becomes invalid after **14 Days** of inactivity. 
