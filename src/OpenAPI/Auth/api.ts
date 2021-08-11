@@ -1256,40 +1256,6 @@ export class NotificationsApi extends BaseAPI {
 export const OAuthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Login to ChatDaddy via OAuth2
-         * @param {OAuthRequest} [oAuthRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        oauthTokenPost: async (oAuthRequest?: OAuthRequest, options: any = {}): Promise<RequestArgs> => {
-            const localVarPath = `/oauth2/token`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(oAuthRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * If the token is not specified, all tokens of the user are revoked
          * @summary Revoke refresh tokens
          * @param {string} [token] 
@@ -1407,17 +1373,6 @@ export const OAuthApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OAuthApiAxiosParamCreator(configuration)
     return {
         /**
-         * 
-         * @summary Login to ChatDaddy via OAuth2
-         * @param {OAuthRequest} [oAuthRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async oauthTokenPost(oAuthRequest?: OAuthRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.oauthTokenPost(oAuthRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * If the token is not specified, all tokens of the user are revoked
          * @summary Revoke refresh tokens
          * @param {string} [token] 
@@ -1460,16 +1415,6 @@ export const OAuthApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = OAuthApiFp(configuration)
     return {
         /**
-         * 
-         * @summary Login to ChatDaddy via OAuth2
-         * @param {OAuthRequest} [oAuthRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        oauthTokenPost(oAuthRequest?: OAuthRequest, options?: any): AxiosPromise<InlineResponse200> {
-            return localVarFp.oauthTokenPost(oAuthRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
          * If the token is not specified, all tokens of the user are revoked
          * @summary Revoke refresh tokens
          * @param {string} [token] 
@@ -1508,18 +1453,6 @@ export const OAuthApiFactory = function (configuration?: Configuration, basePath
  * @extends {BaseAPI}
  */
 export class OAuthApi extends BaseAPI {
-    /**
-     * 
-     * @summary Login to ChatDaddy via OAuth2
-     * @param {OAuthRequest} [oAuthRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OAuthApi
-     */
-    public oauthTokenPost(oAuthRequest?: OAuthRequest, options?: any) {
-        return OAuthApiFp(this.configuration).oauthTokenPost(oAuthRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * If the token is not specified, all tokens of the user are revoked
      * @summary Revoke refresh tokens
