@@ -60,11 +60,17 @@ const getToken = makeAccessTokenFactory({
 	console.log(token)
 	// above line would print something like "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 
-	// fetch chats from whatsapp using the fetched token
+	// send using WA API
 	fetch(
-		'https://api-wa.chatdaddy.tech/chats?count=20',
+		'https://api-wa.chatdaddy.tech/messages/123456789@s.whatsapp.net',
 		{
-			headers: { 'authorization': `Bearer ${token}` }
+			headers: { 
+				'authorization': `Bearer ${token}`,
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({
+				text: 'Hi there!'
+			})
 		}
 	)
 })()
