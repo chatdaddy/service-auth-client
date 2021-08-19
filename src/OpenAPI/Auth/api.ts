@@ -915,6 +915,12 @@ export interface UserCreate {
      * @memberof UserCreate
      */
     notify?: NotifyModel;
+    /**
+     * Sign up with a referral code
+     * @type {string}
+     * @memberof UserCreate
+     */
+    referralCode?: string;
 }
 /**
  * 
