@@ -14,8 +14,6 @@ Using yarn:
 yarn add git+https://github.com/chatdaddy/service-auth-client
 ```
 
-
-
 ## Refresh Tokens and Generating Them
 
 We recommend you use refresh tokens to generate these short lived access tokens. The refresh token is immune to password changes & prevents you from ever entering the password in plaintext. The refresh token automatically becomes invalid after **14 Days** of inactivity. 
@@ -25,6 +23,7 @@ You do have to use your password to generate a refresh token.
 import { OAuthApi, encodeSHA256 } from '@chatdaddy/service-auth-client'
 
 const getRefreshToken = async() => {
+	const oAuthApi = new OAuthApi()
 	const {
       data: { refresh_token },
     } = await oAuthApi.tokenPost({
@@ -45,7 +44,7 @@ Presently, all access tokens last for **1 hour**.
 
 This SDK includes functions to easily generate and persist access tokens from refresh tokens
 ``` ts
-import { OAuthApi, Scope, encodeSHA256 } from '@chatdaddy/service-auth-client'
+import { makeAccessTokenFactory } from '@chatdaddy/service-auth-client'
 // create a factory that takes care of auto-renewing access tokens when they expire
 const getToken = makeAccessTokenFactory({
 	request: {
