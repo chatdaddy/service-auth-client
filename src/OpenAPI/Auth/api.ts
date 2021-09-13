@@ -863,6 +863,12 @@ export interface User {
      */
     notify: NotifyModel;
     /**
+     * The referral code used for sign-up
+     * @type {string}
+     * @memberof User
+     */
+    referralCode?: string | null;
+    /**
      * 
      * @type {Array<TeamMember>}
      * @memberof User
