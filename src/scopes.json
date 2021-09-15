@@ -90,7 +90,7 @@
     "number": 7,
     "description": "Allow the reading of Broadcast Campaigns",
     "features": [
-      "marketing"
+      "broadcast"
     ],
     "roles": [
       "admin",
@@ -103,7 +103,7 @@
     "number": 8,
     "description": "Allow the creation of Broadcast Campaigns",
     "features": [
-      "marketing"
+      "broadcast"
     ],
     "roles": [
       "admin",
@@ -115,7 +115,7 @@
     "number": 9,
     "description": "Allow the deletion of Broadcast Campaigns",
     "features": [
-      "marketing"
+      "broadcast"
     ],
     "roles": [
       "admin",
@@ -127,7 +127,7 @@
     "number": 10,
     "description": "Allow the updating of Broadcast Campaigns",
     "features": [
-      "marketing"
+      "broadcast"
     ],
     "roles": [
       "admin",
@@ -139,7 +139,7 @@
     "number": 11,
     "description": "Allow the reading of Automated Keyword Replies",
     "features": [
-      "marketing"
+      "keyword-reply"
     ],
     "roles": [
       "admin",
@@ -152,7 +152,7 @@
     "number": 12,
     "description": "Allow the creation of Automated Keyword Replies",
     "features": [
-      "marketing"
+      "keyword-reply"
     ],
     "roles": [
       "admin",
@@ -164,7 +164,7 @@
     "number": 13,
     "description": "Allow the deletion of Automated Keyword Replies",
     "features": [
-      "marketing"
+      "keyword-reply"
     ],
     "roles": [
       "admin",
@@ -176,7 +176,7 @@
     "number": 14,
     "description": "Allow the updating of Automated Keyword Replies",
     "features": [
-      "marketing"
+      "keyword-reply"
     ],
     "roles": [
       "admin",
