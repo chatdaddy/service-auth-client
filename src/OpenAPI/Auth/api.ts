@@ -520,6 +520,7 @@ export enum Scope {
     WaState = 'WA_STATE',
     ContactsReadAssigned = 'CONTACTS_READ_ASSIGNED',
     ContactsReadAll = 'CONTACTS_READ_ALL',
+    ContactsExportButton = 'CONTACTS_EXPORT_BUTTON',
     ContactsCreate = 'CONTACTS_CREATE',
     ContactsDelete = 'CONTACTS_DELETE',
     ContactsUpdate = 'CONTACTS_UPDATE',

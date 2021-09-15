@@ -38,6 +38,18 @@
     ],
     "group": "Contacts Access"
   },
+  "CONTACTS_EXPORT_BUTTON": {
+    "number": 26,
+    "description": "Export Contacts",
+    "features": [
+      "audience"
+    ],
+    "roles": [
+      "admin",
+      "editor"
+    ],
+    "group": "Contacts Access"
+  },
   "CONTACTS_CREATE": {
     "number": 4,
     "description": "Allow the creation of contacts",
