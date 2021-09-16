@@ -2042,7 +2042,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarQueryParameter = {} as any;
 
             // authentication otp required
-            await setApiKeyToObject(localVarHeaderParameter, "X-OTP", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
@@ -2126,7 +2126,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             await setOAuthToObject(localVarHeaderParameter, "chatdaddy", ["ADMIN_PANEL_ACCESS"], configuration)
 
             // authentication otp required
-            await setApiKeyToObject(localVarHeaderParameter, "X-OTP", configuration)
+            await setApiKeyToObject(localVarHeaderParameter, "Authorization", configuration)
 
 
     
