@@ -946,7 +946,7 @@ export interface UserPatch {
      * @type {string}
      * @memberof UserPatch
      */
-    emailAddress?: string;
+    emailAddress?: string | null;
     /**
      * 
      * @type {NotifyModel}
