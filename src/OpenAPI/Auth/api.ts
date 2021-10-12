@@ -28,6 +28,84 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 export type AuthRequest = PasswordAuthRequest | RefreshTokenLoginRequest;
 
 /**
+ * Login with Boutir
+ * @export
+ * @interface BoutirTokenRequest
+ */
+export interface BoutirTokenRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof BoutirTokenRequest
+     */
+    type: BoutirTokenRequestTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof BoutirTokenRequest
+     */
+    username: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof BoutirTokenRequest
+     */
+    password: string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum BoutirTokenRequestTypeEnum {
+    Boutir = 'boutir'
+}
+
+/**
+ * 
+ * @export
+ * @interface ExternalTokenPostResponse
+ */
+export interface ExternalTokenPostResponse {
+    /**
+     * Was the user just created
+     * @type {boolean}
+     * @memberof ExternalTokenPostResponse
+     */
+    created?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalTokenPostResponse
+     */
+    access_token: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalTokenPostResponse
+     */
+    refresh_token?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExternalTokenPostResponse
+     */
+    refresh_token_expiry?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ExternalTokenPostResponseAllOf
+ */
+export interface ExternalTokenPostResponseAllOf {
+    /**
+     * Was the user just created
+     * @type {boolean}
+     * @memberof ExternalTokenPostResponseAllOf
+     */
+    created?: boolean;
+}
+/**
  * 
  * @export
  * @interface InlineObject
@@ -812,6 +890,31 @@ export enum TeamPatchRequestMembersDeleteEnum {
 /**
  * 
  * @export
+ * @interface TokenPostResponse
+ */
+export interface TokenPostResponse {
+    /**
+     * 
+     * @type {string}
+     * @memberof TokenPostResponse
+     */
+    access_token: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TokenPostResponse
+     */
+    refresh_token?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TokenPostResponse
+     */
+    refresh_token_expiry?: string;
+}
+/**
+ * 
+ * @export
  * @interface User
  */
 export interface User {
@@ -1391,6 +1494,40 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @summary Login via an external partner
+         * @param {BoutirTokenRequest} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tokenPostExternal: async (body?: BoutirTokenRequest, options: any = {}): Promise<RequestArgs> => {
+            const localVarPath = `/token/external`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1433,6 +1570,17 @@ export const OAuthApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tokenPost(authRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * 
+         * @summary Login via an external partner
+         * @param {BoutirTokenRequest} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async tokenPostExternal(body?: BoutirTokenRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ExternalTokenPostResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.tokenPostExternal(body, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -1471,6 +1619,16 @@ export const OAuthApiFactory = function (configuration?: Configuration, basePath
          */
         tokenPost(authRequest?: AuthRequest, options?: any): AxiosPromise<InlineResponse200> {
             return localVarFp.tokenPost(authRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Login via an external partner
+         * @param {BoutirTokenRequest} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        tokenPostExternal(body?: BoutirTokenRequest, options?: any): AxiosPromise<ExternalTokenPostResponse> {
+            return localVarFp.tokenPostExternal(body, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1515,6 +1673,18 @@ export class OAuthApi extends BaseAPI {
      */
     public tokenPost(authRequest?: AuthRequest, options?: any) {
         return OAuthApiFp(this.configuration).tokenPost(authRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Login via an external partner
+     * @param {BoutirTokenRequest} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OAuthApi
+     */
+    public tokenPostExternal(body?: BoutirTokenRequest, options?: any) {
+        return OAuthApiFp(this.configuration).tokenPostExternal(body, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
