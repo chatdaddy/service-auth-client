@@ -926,12 +926,6 @@ export interface User {
     id: string;
     /**
      * 
-     * @type {UserType}
-     * @memberof User
-     */
-    type: UserType;
-    /**
-     * 
      * @type {string}
      * @memberof User
      */
@@ -974,10 +968,10 @@ export interface User {
     emailAddress?: string | null;
     /**
      * 
-     * @type {string}
+     * @type {UserCreateMethod}
      * @memberof User
      */
-    createdByMethod?: UserCreatedByMethodEnum;
+    createdByMethod?: UserCreateMethod;
     /**
      * 
      * @type {NotifyModel}
@@ -997,16 +991,6 @@ export interface User {
      */
     memberships?: Array<TeamMember>;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum UserCreatedByMethodEnum {
-    AdminPanel = 'admin-panel',
-    Otp = 'otp'
-}
-
 /**
  * 
  * @export
@@ -1053,6 +1037,17 @@ export interface UserCreate {
 /**
  * 
  * @export
+ * @enum {string}
+ */
+export enum UserCreateMethod {
+    AdminPanel = 'admin-panel',
+    Otp = 'otp',
+    Boutir = 'boutir'
+}
+
+/**
+ * 
+ * @export
  * @interface UserPatch
  */
 export interface UserPatch {
@@ -1087,16 +1082,6 @@ export interface UserPatch {
      */
     password?: string;
 }
-/**
- * 
- * @export
- * @enum {string}
- */
-export enum UserType {
-    Chatdaddy = 'chatdaddy',
-    Boutir = 'boutir'
-}
-
 
 /**
  * InviteLinksApi - axios parameter creator
