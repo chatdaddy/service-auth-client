@@ -926,6 +926,12 @@ export interface User {
     id: string;
     /**
      * 
+     * @type {UserType}
+     * @memberof User
+     */
+    type: UserType;
+    /**
+     * 
      * @type {string}
      * @memberof User
      */
@@ -1081,6 +1087,16 @@ export interface UserPatch {
      */
     password?: string;
 }
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
+export enum UserType {
+    Chatdaddy = 'chatdaddy',
+    Boutir = 'boutir'
+}
+
 
 /**
  * InviteLinksApi - axios parameter creator
