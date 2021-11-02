@@ -755,6 +755,18 @@ export interface TeamMember {
      * @type {string}
      * @memberof TeamMember
      */
+    userId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamMember
+     */
+    teamId: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TeamMember
+     */
     addedAt: string;
     /**
      * 
