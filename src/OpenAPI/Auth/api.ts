@@ -1285,11 +1285,13 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
          * 
          * @summary Notify a team member
          * @param {string} userId 
+         * @param {boolean} [notifyWhatsApp] Override notify on WhatsApp
+         * @param {boolean} [notifyEmail] Override notify on Email
          * @param {InlineObject2} [inlineObject2] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        notify: async (userId: string, inlineObject2?: InlineObject2, options: any = {}): Promise<RequestArgs> => {
+        notify: async (userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options: any = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('notify', 'userId', userId)
             const localVarPath = `/notify`;
@@ -1310,6 +1312,14 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
 
             if (userId !== undefined) {
                 localVarQueryParameter['userId'] = userId;
+            }
+
+            if (notifyWhatsApp !== undefined) {
+                localVarQueryParameter['notifyWhatsApp'] = notifyWhatsApp;
+            }
+
+            if (notifyEmail !== undefined) {
+                localVarQueryParameter['notifyEmail'] = notifyEmail;
             }
 
 
@@ -1340,12 +1350,14 @@ export const NotificationsApiFp = function(configuration?: Configuration) {
          * 
          * @summary Notify a team member
          * @param {string} userId 
+         * @param {boolean} [notifyWhatsApp] Override notify on WhatsApp
+         * @param {boolean} [notifyEmail] Override notify on Email
          * @param {InlineObject2} [inlineObject2] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async notify(userId: string, inlineObject2?: InlineObject2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.notify(userId, inlineObject2, options);
+        async notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.notify(userId, notifyWhatsApp, notifyEmail, inlineObject2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1362,12 +1374,14 @@ export const NotificationsApiFactory = function (configuration?: Configuration, 
          * 
          * @summary Notify a team member
          * @param {string} userId 
+         * @param {boolean} [notifyWhatsApp] Override notify on WhatsApp
+         * @param {boolean} [notifyEmail] Override notify on Email
          * @param {InlineObject2} [inlineObject2] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        notify(userId: string, inlineObject2?: InlineObject2, options?: any): AxiosPromise<InlineResponse2004> {
-            return localVarFp.notify(userId, inlineObject2, options).then((request) => request(axios, basePath));
+        notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: any): AxiosPromise<InlineResponse2004> {
+            return localVarFp.notify(userId, notifyWhatsApp, notifyEmail, inlineObject2, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1383,13 +1397,15 @@ export class NotificationsApi extends BaseAPI {
      * 
      * @summary Notify a team member
      * @param {string} userId 
+     * @param {boolean} [notifyWhatsApp] Override notify on WhatsApp
+     * @param {boolean} [notifyEmail] Override notify on Email
      * @param {InlineObject2} [inlineObject2] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof NotificationsApi
      */
-    public notify(userId: string, inlineObject2?: InlineObject2, options?: any) {
-        return NotificationsApiFp(this.configuration).notify(userId, inlineObject2, options).then((request) => request(this.axios, this.basePath));
+    public notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: any) {
+        return NotificationsApiFp(this.configuration).notify(userId, notifyWhatsApp, notifyEmail, inlineObject2, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
