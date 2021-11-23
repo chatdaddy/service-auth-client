@@ -2190,10 +2190,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {number} [page] The page number
          * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
          * @param {boolean} [includeTotal] should return total count of accessible users
+         * @param {Array<string>} [other] other internal query options
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet: async (q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, options: any = {}): Promise<RequestArgs> => {
+        usersGet: async (q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options: any = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2232,6 +2233,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (includeTotal !== undefined) {
                 localVarQueryParameter['includeTotal'] = includeTotal;
+            }
+
+            if (other) {
+                localVarQueryParameter['other'] = other;
             }
 
 
@@ -2396,11 +2401,12 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {number} [page] The page number
          * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
          * @param {boolean} [includeTotal] should return total count of accessible users
+         * @param {Array<string>} [other] other internal query options
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersGet(q, id, count, page, includeMemberships, includeTotal, options);
+        async usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.usersGet(q, id, count, page, includeMemberships, includeTotal, other, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2466,11 +2472,12 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {number} [page] The page number
          * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
          * @param {boolean} [includeTotal] should return total count of accessible users
+         * @param {Array<string>} [other] other internal query options
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, options?: any): AxiosPromise<InlineResponse2003> {
-            return localVarFp.usersGet(q, id, count, page, includeMemberships, includeTotal, options).then((request) => request(axios, basePath));
+        usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any): AxiosPromise<InlineResponse2003> {
+            return localVarFp.usersGet(q, id, count, page, includeMemberships, includeTotal, other, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2534,12 +2541,13 @@ export class UsersApi extends BaseAPI {
      * @param {number} [page] The page number
      * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
      * @param {boolean} [includeTotal] should return total count of accessible users
+     * @param {Array<string>} [other] other internal query options
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, options?: any) {
-        return UsersApiFp(this.configuration).usersGet(q, id, count, page, includeMemberships, includeTotal, options).then((request) => request(this.axios, this.basePath));
+    public usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any) {
+        return UsersApiFp(this.configuration).usersGet(q, id, count, page, includeMemberships, includeTotal, other, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
