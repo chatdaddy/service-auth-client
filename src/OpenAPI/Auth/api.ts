@@ -180,6 +180,12 @@ export interface InlineResponse200 {
      * @memberof InlineResponse200
      */
     refresh_token_expiry?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof InlineResponse200
+     */
+    was_forced?: boolean;
 }
 /**
  * 
@@ -525,6 +531,12 @@ export interface PasswordAuthRequest {
      * @memberof PasswordAuthRequest
      */
     updateLastUsedTeam?: boolean;
+    /**
+     * Force the generation of an access token
+     * @type {boolean}
+     * @memberof PasswordAuthRequest
+     */
+    force?: boolean;
 }
 /**
  * A refresh token allows you to generate access tokens to access & update things on ChatDaddy services. A refresh token will expire and become invalidated after 14 days of no activity. 
@@ -587,6 +599,12 @@ export interface RefreshTokenLoginRequest {
      * @memberof RefreshTokenLoginRequest
      */
     updateLastUsedTeam?: boolean;
+    /**
+     * Force the generation of an access token
+     * @type {boolean}
+     * @memberof RefreshTokenLoginRequest
+     */
+    force?: boolean;
 }
 /**
  * 
