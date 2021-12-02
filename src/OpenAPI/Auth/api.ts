@@ -14,7 +14,7 @@
 
 
 import { Configuration } from './configuration';
-import globalAxios, { AxiosPromise, AxiosInstance } from 'axios';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
@@ -38,19 +38,19 @@ export interface BoutirTokenRequest {
      * @type {string}
      * @memberof BoutirTokenRequest
      */
-    type: BoutirTokenRequestTypeEnum;
+    'type': BoutirTokenRequestTypeEnum;
     /**
      * 
      * @type {string}
      * @memberof BoutirTokenRequest
      */
-    username: string;
+    'username': string;
     /**
      * 
      * @type {string}
      * @memberof BoutirTokenRequest
      */
-    password: string;
+    'password': string;
 }
 
 /**
@@ -72,25 +72,25 @@ export interface ExternalTokenPostResponse {
      * @type {boolean}
      * @memberof ExternalTokenPostResponse
      */
-    created?: boolean;
+    'created'?: boolean;
     /**
      * 
      * @type {string}
      * @memberof ExternalTokenPostResponse
      */
-    access_token: string;
+    'access_token': string;
     /**
      * 
      * @type {string}
      * @memberof ExternalTokenPostResponse
      */
-    refresh_token?: string;
+    'refresh_token'?: string;
     /**
      * 
      * @type {string}
      * @memberof ExternalTokenPostResponse
      */
-    refresh_token_expiry?: string;
+    'refresh_token_expiry'?: string;
 }
 /**
  * 
@@ -103,7 +103,7 @@ export interface ExternalTokenPostResponseAllOf {
      * @type {boolean}
      * @memberof ExternalTokenPostResponseAllOf
      */
-    created?: boolean;
+    'created'?: boolean;
 }
 /**
  * 
@@ -116,7 +116,7 @@ export interface InlineObject {
      * @type {Array<Scope>}
      * @memberof InlineObject
      */
-    scopes: Array<Scope>;
+    'scopes': Array<Scope>;
 }
 /**
  * 
@@ -129,7 +129,7 @@ export interface InlineObject1 {
      * @type {string}
      * @memberof InlineObject1
      */
-    phoneNumber: string;
+    'phoneNumber': string;
 }
 /**
  * 
@@ -142,19 +142,19 @@ export interface InlineObject2 {
      * @type {string}
      * @memberof InlineObject2
      */
-    title: string;
+    'title': string;
     /**
      * 
      * @type {string}
      * @memberof InlineObject2
      */
-    content: string;
+    'content': string;
     /**
      * 
      * @type {{ [key: string]: any; }}
      * @memberof InlineObject2
      */
-    parameters?: { [key: string]: any; };
+    'parameters'?: { [key: string]: any; };
 }
 /**
  * 
@@ -167,25 +167,25 @@ export interface InlineResponse200 {
      * @type {string}
      * @memberof InlineResponse200
      */
-    access_token: string;
+    'access_token': string;
     /**
      * 
      * @type {string}
      * @memberof InlineResponse200
      */
-    refresh_token?: string;
+    'refresh_token'?: string;
     /**
      * 
      * @type {string}
      * @memberof InlineResponse200
      */
-    refresh_token_expiry?: string;
+    'refresh_token_expiry'?: string;
     /**
      * 
      * @type {boolean}
      * @memberof InlineResponse200
      */
-    was_forced?: boolean;
+    'was_forced'?: boolean;
 }
 /**
  * 
@@ -198,13 +198,13 @@ export interface InlineResponse2001 {
      * @type {number}
      * @memberof InlineResponse2001
      */
-    total?: number;
+    'total'?: number;
     /**
      * 
      * @type {Array<Team>}
      * @memberof InlineResponse2001
      */
-    teams: Array<Team>;
+    'teams': Array<Team>;
 }
 /**
  * 
@@ -217,7 +217,7 @@ export interface InlineResponse2002 {
      * @type {boolean}
      * @memberof InlineResponse2002
      */
-    success: boolean;
+    'success': boolean;
 }
 /**
  * 
@@ -230,13 +230,13 @@ export interface InlineResponse2003 {
      * @type {number}
      * @memberof InlineResponse2003
      */
-    total?: number;
+    'total'?: number;
     /**
      * 
      * @type {Array<User>}
      * @memberof InlineResponse2003
      */
-    users: Array<User>;
+    'users': Array<User>;
 }
 /**
  * 
@@ -249,13 +249,13 @@ export interface InlineResponse2004 {
      * @type {NotificationResult}
      * @memberof InlineResponse2004
      */
-    whatsapp: NotificationResult;
+    'whatsapp': NotificationResult;
     /**
      * 
      * @type {NotificationResult}
      * @memberof InlineResponse2004
      */
-    email: NotificationResult;
+    'email': NotificationResult;
 }
 /**
  * 
@@ -268,25 +268,25 @@ export interface InlineResponse400 {
      * @type {number}
      * @memberof InlineResponse400
      */
-    statusCode?: number;
+    'statusCode'?: number;
     /**
      * Specific description of the error
      * @type {string}
      * @memberof InlineResponse400
      */
-    error?: string;
+    'error'?: string;
     /**
      * What the error was
      * @type {string}
      * @memberof InlineResponse400
      */
-    message?: string;
+    'message'?: string;
     /**
      * Some extra information about the error
      * @type {object}
      * @memberof InlineResponse400
      */
-    data?: object;
+    'data'?: object;
 }
 /**
  * 
@@ -299,37 +299,37 @@ export interface InviteLink {
      * @type {string}
      * @memberof InviteLink
      */
-    id: string;
+    'id': string;
     /**
      * The team it can join
      * @type {string}
      * @memberof InviteLink
      */
-    teamId: string;
+    'teamId': string;
     /**
      * User ID of the person who created the link
      * @type {string}
      * @memberof InviteLink
      */
-    createdBy: string;
+    'createdBy': string;
     /**
      * 
      * @type {string}
      * @memberof InviteLink
      */
-    createdAt: string;
+    'createdAt': string;
     /**
      * 
      * @type {string}
      * @memberof InviteLink
      */
-    expiresAt: string;
+    'expiresAt': string;
     /**
      * The scopes allowed for the invite link
      * @type {Array<Scope>}
      * @memberof InviteLink
      */
-    scopes: Array<Scope>;
+    'scopes': Array<Scope>;
 }
 /**
  * 
@@ -342,25 +342,25 @@ export interface JWT {
      * @type {string}
      * @memberof JWT
      */
-    scope: string;
+    'scope': string;
     /**
      * 
      * @type {number}
      * @memberof JWT
      */
-    exp: number;
+    'exp': number;
     /**
      * 
      * @type {number}
      * @memberof JWT
      */
-    iat: number;
+    'iat': number;
     /**
      * 
      * @type {JWTUser}
      * @memberof JWT
      */
-    user: JWTUser;
+    'user': JWTUser;
 }
 /**
  * 
@@ -373,25 +373,25 @@ export interface JWTUser {
      * @type {string}
      * @memberof JWTUser
      */
-    id: string;
+    'id': string;
     /**
      * 
      * @type {string}
      * @memberof JWTUser
      */
-    teamId: string;
+    'teamId': string;
     /**
      * 
      * @type {string}
      * @memberof JWTUser
      */
-    fullName?: string;
+    'fullName'?: string;
     /**
      * 
      * @type {number}
      * @memberof JWTUser
      */
-    phoneNumber: number;
+    'phoneNumber': number;
 }
 /**
  * @type NotificationResult
@@ -410,13 +410,13 @@ export interface NotifyModel {
      * @type {boolean}
      * @memberof NotifyModel
      */
-    whatsapp?: boolean;
+    'whatsapp'?: boolean;
     /**
      * 
      * @type {boolean}
      * @memberof NotifyModel
      */
-    email?: boolean;
+    'email'?: boolean;
 }
 /**
  * 
@@ -429,25 +429,25 @@ export interface OAuthRequest {
      * @type {string}
      * @memberof OAuthRequest
      */
-    username: string;
+    'username': string;
     /**
      * Plaintext password
      * @type {string}
      * @memberof OAuthRequest
      */
-    password: string;
+    'password': string;
     /**
      * 
      * @type {string}
      * @memberof OAuthRequest
      */
-    grant_type?: OAuthRequestGrantTypeEnum;
+    'grant_type'?: OAuthRequestGrantTypeEnum;
     /**
      * Space separated scopes
      * @type {string}
      * @memberof OAuthRequest
      */
-    scope?: string;
+    'scope'?: string;
 }
 
 /**
@@ -469,25 +469,25 @@ export interface OTP {
      * @type {number}
      * @memberof OTP
      */
-    phoneNumber: number;
+    'phoneNumber': number;
     /**
      * 
      * @type {number}
      * @memberof OTP
      */
-    otp?: number;
+    'otp'?: number;
     /**
      * 
      * @type {string}
      * @memberof OTP
      */
-    expiresAt: string;
+    'expiresAt': string;
     /**
      * 
      * @type {number}
      * @memberof OTP
      */
-    resendsLeft: number;
+    'resendsLeft': number;
 }
 /**
  * 
@@ -500,43 +500,43 @@ export interface PasswordAuthRequest {
      * @type {number}
      * @memberof PasswordAuthRequest
      */
-    phoneNumber: number;
+    'phoneNumber': number;
     /**
      * 
      * @type {boolean}
      * @memberof PasswordAuthRequest
      */
-    returnRefreshToken?: boolean;
+    'returnRefreshToken'?: boolean;
     /**
      * This will be the base64 encoded SHA256 of the plaintext password
      * @type {string}
      * @memberof PasswordAuthRequest
      */
-    password: string;
+    'password': string;
     /**
      * The team ID to generate the token for, lastUsedTeam will be used otherwise
      * @type {string}
      * @memberof PasswordAuthRequest
      */
-    teamId?: string;
+    'teamId'?: string;
     /**
      * 
      * @type {Array<Scope>}
      * @memberof PasswordAuthRequest
      */
-    scopes?: Array<Scope>;
+    'scopes'?: Array<Scope>;
     /**
      * Should logging in with this team ID update the lastUsedTeam for login
      * @type {boolean}
      * @memberof PasswordAuthRequest
      */
-    updateLastUsedTeam?: boolean;
+    'updateLastUsedTeam'?: boolean;
     /**
      * Force the generation of an access token
      * @type {boolean}
      * @memberof PasswordAuthRequest
      */
-    force?: boolean;
+    'force'?: boolean;
 }
 /**
  * A refresh token allows you to generate access tokens to access & update things on ChatDaddy services. A refresh token will expire and become invalidated after 14 days of no activity. 
@@ -549,25 +549,25 @@ export interface RefreshToken {
      * @type {string}
      * @memberof RefreshToken
      */
-    token: string;
+    'token': string;
     /**
      * 
      * @type {string}
      * @memberof RefreshToken
      */
-    userId: string;
+    'userId': string;
     /**
      * 
      * @type {string}
      * @memberof RefreshToken
      */
-    createdAt: string;
+    'createdAt': string;
     /**
      * 
      * @type {string}
      * @memberof RefreshToken
      */
-    expiresAt: string;
+    'expiresAt': string;
 }
 /**
  * 
@@ -580,31 +580,31 @@ export interface RefreshTokenLoginRequest {
      * @type {string}
      * @memberof RefreshTokenLoginRequest
      */
-    refreshToken: string;
+    'refreshToken': string;
     /**
      * The team ID to generate the token for, lastUsedTeam will be used otherwise
      * @type {string}
      * @memberof RefreshTokenLoginRequest
      */
-    teamId: string;
+    'teamId': string;
     /**
      * 
      * @type {Array<Scope>}
      * @memberof RefreshTokenLoginRequest
      */
-    scopes?: Array<Scope>;
+    'scopes'?: Array<Scope>;
     /**
      * Should fetching the token of a new team update the lastUsedTeam for login
      * @type {boolean}
      * @memberof RefreshTokenLoginRequest
      */
-    updateLastUsedTeam?: boolean;
+    'updateLastUsedTeam'?: boolean;
     /**
      * Force the generation of an access token
      * @type {boolean}
      * @memberof RefreshTokenLoginRequest
      */
-    force?: boolean;
+    'force'?: boolean;
 }
 /**
  * 
@@ -617,13 +617,14 @@ export interface ResetPassword {
      * @type {string}
      * @memberof ResetPassword
      */
-    password: string;
+    'password': string;
 }
 /**
  * 
  * @export
  * @enum {string}
  */
+
 export enum Scope {
     WaState = 'WA_STATE',
     ContactsReadAssigned = 'CONTACTS_READ_ASSIGNED',
@@ -694,61 +695,61 @@ export interface Team {
      * @type {string}
      * @memberof Team
      */
-    id: string;
+    'id': string;
     /**
      * 
      * @type {string}
      * @memberof Team
      */
-    createdAt: string;
+    'createdAt': string;
     /**
      * 
      * @type {string}
      * @memberof Team
      */
-    updatedAt: string;
+    'updatedAt': string;
     /**
      * Who created the team
      * @type {string}
      * @memberof Team
      */
-    createdBy?: string;
+    'createdBy'?: string;
     /**
      * 
      * @type {string}
      * @memberof Team
      */
-    name: string;
+    'name': string;
     /**
      * Is an admin team
      * @type {boolean}
      * @memberof Team
      */
-    isAdmin?: boolean;
+    'isAdmin'?: boolean;
     /**
      * The max scopes allowed
      * @type {Array<Scope>}
      * @memberof Team
      */
-    scopes: Array<Scope>;
+    'scopes': Array<Scope>;
     /**
      * 
      * @type {TeamMetadata}
      * @memberof Team
      */
-    metadata: TeamMetadata;
+    'metadata': TeamMetadata;
     /**
      * 
      * @type {Array<TeamMember>}
      * @memberof Team
      */
-    members?: Array<TeamMember>;
+    'members'?: Array<TeamMember>;
     /**
      * 
      * @type {Array<InviteLink>}
      * @memberof Team
      */
-    inviteLinks?: Array<InviteLink>;
+    'inviteLinks'?: Array<InviteLink>;
 }
 /**
  * 
@@ -761,43 +762,43 @@ export interface TeamMember {
      * @type {Team}
      * @memberof TeamMember
      */
-    team?: Team;
+    'team'?: Team;
     /**
      * 
      * @type {User}
      * @memberof TeamMember
      */
-    user?: User;
+    'user'?: User;
     /**
      * 
      * @type {string}
      * @memberof TeamMember
      */
-    userId: string;
+    'userId': string;
     /**
      * 
      * @type {string}
      * @memberof TeamMember
      */
-    teamId: string;
+    'teamId': string;
     /**
      * 
      * @type {string}
      * @memberof TeamMember
      */
-    addedAt: string;
+    'addedAt': string;
     /**
      * 
      * @type {string}
      * @memberof TeamMember
      */
-    addedBy?: string | null;
+    'addedBy'?: string | null;
     /**
      * 
      * @type {Array<Scope>}
      * @memberof TeamMember
      */
-    scopes: Array<Scope>;
+    'scopes': Array<Scope>;
 }
 /**
  * 
@@ -810,19 +811,19 @@ export interface TeamMetadata {
      * @type {string}
      * @memberof TeamMetadata
      */
-    companyName?: string;
+    'companyName'?: string;
     /**
      * 
      * @type {string}
      * @memberof TeamMetadata
      */
-    companyEmailAddress?: string;
+    'companyEmailAddress'?: string;
     /**
      * 
      * @type {string}
      * @memberof TeamMetadata
      */
-    companyWebsite?: string;
+    'companyWebsite'?: string;
 }
 /**
  * 
@@ -835,25 +836,25 @@ export interface TeamPatchRequest {
      * @type {string}
      * @memberof TeamPatchRequest
      */
-    name?: string;
+    'name'?: string;
     /**
      * 
      * @type {TeamMetadata}
      * @memberof TeamPatchRequest
      */
-    metadata?: TeamMetadata;
+    'metadata'?: TeamMetadata;
     /**
      * 
      * @type {Array<TeamPatchRequestMembers>}
      * @memberof TeamPatchRequest
      */
-    members?: Array<TeamPatchRequestMembers>;
+    'members'?: Array<TeamPatchRequestMembers>;
     /**
      * 
      * @type {Array<TeamPatchRequestInviteLinks>}
      * @memberof TeamPatchRequest
      */
-    inviteLinks?: Array<TeamPatchRequestInviteLinks>;
+    'inviteLinks'?: Array<TeamPatchRequestInviteLinks>;
 }
 /**
  * 
@@ -866,13 +867,13 @@ export interface TeamPatchRequestInviteLinks {
      * @type {string}
      * @memberof TeamPatchRequestInviteLinks
      */
-    id: string;
+    'id': string;
     /**
      * If set, will delete the invite link
      * @type {boolean}
      * @memberof TeamPatchRequestInviteLinks
      */
-    delete?: TeamPatchRequestInviteLinksDeleteEnum;
+    'delete'?: TeamPatchRequestInviteLinksDeleteEnum;
 }
 
 /**
@@ -880,7 +881,7 @@ export interface TeamPatchRequestInviteLinks {
     * @enum {string}
     */
 export enum TeamPatchRequestInviteLinksDeleteEnum {
-    True = 'true'
+    True = true
 }
 
 /**
@@ -894,19 +895,19 @@ export interface TeamPatchRequestMembers {
      * @type {string}
      * @memberof TeamPatchRequestMembers
      */
-    id: string;
+    'id': string;
     /**
      * 
      * @type {Array<Scope>}
      * @memberof TeamPatchRequestMembers
      */
-    scopes?: Array<Scope>;
+    'scopes'?: Array<Scope>;
     /**
      * If set, will delete the team member
      * @type {boolean}
      * @memberof TeamPatchRequestMembers
      */
-    delete?: TeamPatchRequestMembersDeleteEnum;
+    'delete'?: TeamPatchRequestMembersDeleteEnum;
 }
 
 /**
@@ -914,7 +915,7 @@ export interface TeamPatchRequestMembers {
     * @enum {string}
     */
 export enum TeamPatchRequestMembersDeleteEnum {
-    True = 'true'
+    True = true
 }
 
 /**
@@ -928,19 +929,19 @@ export interface TokenPostResponse {
      * @type {string}
      * @memberof TokenPostResponse
      */
-    access_token: string;
+    'access_token': string;
     /**
      * 
      * @type {string}
      * @memberof TokenPostResponse
      */
-    refresh_token?: string;
+    'refresh_token'?: string;
     /**
      * 
      * @type {string}
      * @memberof TokenPostResponse
      */
-    refresh_token_expiry?: string;
+    'refresh_token_expiry'?: string;
 }
 /**
  * 
@@ -953,73 +954,73 @@ export interface User {
      * @type {string}
      * @memberof User
      */
-    id: string;
+    'id': string;
     /**
      * 
      * @type {string}
      * @memberof User
      */
-    createdAt: string;
+    'createdAt': string;
     /**
      * 
      * @type {string}
      * @memberof User
      */
-    updatedAt: string;
+    'updatedAt': string;
     /**
      * 
      * @type {string}
      * @memberof User
      */
-    disabledAt?: string;
+    'disabledAt'?: string;
     /**
      * 
      * @type {string}
      * @memberof User
      */
-    fullName: string;
+    'fullName': string;
     /**
      * The last used team ID, your refresh token when logging in is generated for this team
      * @type {string}
      * @memberof User
      */
-    lastUsedTeamId?: string;
+    'lastUsedTeamId'?: string;
     /**
      * Will only contain numbers, no + sign, brackets etc.
      * @type {number}
      * @memberof User
      */
-    phoneNumber: number;
+    'phoneNumber': number;
     /**
      * 
      * @type {string}
      * @memberof User
      */
-    emailAddress?: string | null;
+    'emailAddress'?: string | null;
     /**
      * 
      * @type {UserCreateMethod}
      * @memberof User
      */
-    createdByMethod?: UserCreateMethod;
+    'createdByMethod'?: UserCreateMethod;
     /**
      * 
      * @type {NotifyModel}
      * @memberof User
      */
-    notify: NotifyModel;
+    'notify': NotifyModel;
     /**
      * The referral code used for sign-up
      * @type {string}
      * @memberof User
      */
-    referralCode?: string | null;
+    'referralCode'?: string | null;
     /**
      * 
      * @type {Array<TeamMember>}
      * @memberof User
      */
-    memberships?: Array<TeamMember>;
+    'memberships'?: Array<TeamMember>;
 }
 /**
  * 
@@ -1032,43 +1033,44 @@ export interface UserCreate {
      * @type {string}
      * @memberof UserCreate
      */
-    fullName: string;
+    'fullName': string;
     /**
      * Will only contain numbers, no + sign, brackets etc.
      * @type {number}
      * @memberof UserCreate
      */
-    phoneNumber: number;
+    'phoneNumber': number;
     /**
      * SHA256 of the plaintext password pls
      * @type {string}
      * @memberof UserCreate
      */
-    password: string;
+    'password': string;
     /**
      * 
      * @type {string}
      * @memberof UserCreate
      */
-    emailAddress?: string | null;
+    'emailAddress'?: string | null;
     /**
      * 
      * @type {NotifyModel}
      * @memberof UserCreate
      */
-    notify?: NotifyModel;
+    'notify'?: NotifyModel;
     /**
      * Sign up with a referral code
      * @type {string}
      * @memberof UserCreate
      */
-    referralCode?: string;
+    'referralCode'?: string;
 }
 /**
  * 
  * @export
  * @enum {string}
  */
+
 export enum UserCreateMethod {
     AdminPanel = 'admin-panel',
     Otp = 'otp',
@@ -1086,31 +1088,31 @@ export interface UserPatch {
      * @type {string}
      * @memberof UserPatch
      */
-    fullName?: string;
+    'fullName'?: string;
     /**
      * 
      * @type {string}
      * @memberof UserPatch
      */
-    emailAddress?: string | null;
+    'emailAddress'?: string | null;
     /**
      * 
      * @type {NotifyModel}
      * @memberof UserPatch
      */
-    notify?: NotifyModel;
+    'notify'?: NotifyModel;
     /**
      * Phone number. Only admin access can modify
      * @type {number}
      * @memberof UserPatch
      */
-    phoneNumber?: number;
+    'phoneNumber'?: number;
     /**
      * new password. Only admin access can modify
      * @type {string}
      * @memberof UserPatch
      */
-    password?: string;
+    'password'?: string;
 }
 
 /**
@@ -1126,7 +1128,7 @@ export const InviteLinksApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inviteLinksGet: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        inviteLinksGet: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('inviteLinksGet', 'id', id)
             const localVarPath = `/invite-links/{id}`
@@ -1148,7 +1150,7 @@ export const InviteLinksApiAxiosParamCreator = function (configuration?: Configu
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -1164,7 +1166,7 @@ export const InviteLinksApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        inviteLinksPost: async (inlineObject?: InlineObject, options: any = {}): Promise<RequestArgs> => {
+        inviteLinksPost: async (inlineObject?: InlineObject, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/invite-links`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1185,7 +1187,7 @@ export const InviteLinksApiAxiosParamCreator = function (configuration?: Configu
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inlineObject, localVarRequestOptions, configuration)
@@ -1212,7 +1214,7 @@ export const InviteLinksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inviteLinksGet(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InviteLink>> {
+        async inviteLinksGet(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InviteLink>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inviteLinksGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1223,7 +1225,7 @@ export const InviteLinksApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async inviteLinksPost(inlineObject?: InlineObject, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InviteLink>> {
+        async inviteLinksPost(inlineObject?: InlineObject, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InviteLink>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.inviteLinksPost(inlineObject, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1275,7 +1277,7 @@ export class InviteLinksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InviteLinksApi
      */
-    public inviteLinksGet(id: string, options?: any) {
+    public inviteLinksGet(id: string, options?: AxiosRequestConfig) {
         return InviteLinksApiFp(this.configuration).inviteLinksGet(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1287,7 +1289,7 @@ export class InviteLinksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof InviteLinksApi
      */
-    public inviteLinksPost(inlineObject?: InlineObject, options?: any) {
+    public inviteLinksPost(inlineObject?: InlineObject, options?: AxiosRequestConfig) {
         return InviteLinksApiFp(this.configuration).inviteLinksPost(inlineObject, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -1309,7 +1311,7 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        notify: async (userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options: any = {}): Promise<RequestArgs> => {
+        notify: async (userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('notify', 'userId', userId)
             const localVarPath = `/notify`;
@@ -1344,7 +1346,7 @@ export const NotificationsApiAxiosParamCreator = function (configuration?: Confi
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inlineObject2, localVarRequestOptions, configuration)
@@ -1374,7 +1376,7 @@ export const NotificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
+        async notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2004>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.notify(userId, notifyWhatsApp, notifyEmail, inlineObject2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1422,7 +1424,7 @@ export class NotificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsApi
      */
-    public notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: any) {
+    public notify(userId: string, notifyWhatsApp?: boolean, notifyEmail?: boolean, inlineObject2?: InlineObject2, options?: AxiosRequestConfig) {
         return NotificationsApiFp(this.configuration).notify(userId, notifyWhatsApp, notifyEmail, inlineObject2, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -1441,7 +1443,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tokenDelete: async (token?: string, options: any = {}): Promise<RequestArgs> => {
+        tokenDelete: async (token?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/token`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1464,7 +1466,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -1479,7 +1481,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tokenGet: async (options: any = {}): Promise<RequestArgs> => {
+        tokenGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/token`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1498,7 +1500,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -1514,7 +1516,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tokenPost: async (authRequest?: AuthRequest, options: any = {}): Promise<RequestArgs> => {
+        tokenPost: async (authRequest?: AuthRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/token`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1531,7 +1533,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(authRequest, localVarRequestOptions, configuration)
@@ -1548,7 +1550,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tokenPostExternal: async (body?: BoutirTokenRequest, options: any = {}): Promise<RequestArgs> => {
+        tokenPostExternal: async (body?: BoutirTokenRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/token/external`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1565,7 +1567,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
@@ -1592,7 +1594,7 @@ export const OAuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tokenDelete(token?: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async tokenDelete(token?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tokenDelete(token, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1602,7 +1604,7 @@ export const OAuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tokenGet(options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RefreshToken>>> {
+        async tokenGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RefreshToken>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tokenGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1613,7 +1615,7 @@ export const OAuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tokenPost(authRequest?: AuthRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
+        async tokenPost(authRequest?: AuthRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tokenPost(authRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1624,7 +1626,7 @@ export const OAuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tokenPostExternal(body?: BoutirTokenRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ExternalTokenPostResponse>> {
+        async tokenPostExternal(body?: BoutirTokenRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ExternalTokenPostResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.tokenPostExternal(body, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1695,7 +1697,7 @@ export class OAuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthApi
      */
-    public tokenDelete(token?: string, options?: any) {
+    public tokenDelete(token?: string, options?: AxiosRequestConfig) {
         return OAuthApiFp(this.configuration).tokenDelete(token, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1706,7 +1708,7 @@ export class OAuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthApi
      */
-    public tokenGet(options?: any) {
+    public tokenGet(options?: AxiosRequestConfig) {
         return OAuthApiFp(this.configuration).tokenGet(options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1718,7 +1720,7 @@ export class OAuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthApi
      */
-    public tokenPost(authRequest?: AuthRequest, options?: any) {
+    public tokenPost(authRequest?: AuthRequest, options?: AxiosRequestConfig) {
         return OAuthApiFp(this.configuration).tokenPost(authRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -1730,7 +1732,7 @@ export class OAuthApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthApi
      */
-    public tokenPostExternal(body?: BoutirTokenRequest, options?: any) {
+    public tokenPostExternal(body?: BoutirTokenRequest, options?: AxiosRequestConfig) {
         return OAuthApiFp(this.configuration).tokenPostExternal(body, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -1749,7 +1751,7 @@ export const OTPApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        otpPost: async (inlineObject1?: InlineObject1, options: any = {}): Promise<RequestArgs> => {
+        otpPost: async (inlineObject1?: InlineObject1, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/otp`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1766,7 +1768,7 @@ export const OTPApiAxiosParamCreator = function (configuration?: Configuration) 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(inlineObject1, localVarRequestOptions, configuration)
@@ -1793,7 +1795,7 @@ export const OTPApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async otpPost(inlineObject1?: InlineObject1, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OTP>> {
+        async otpPost(inlineObject1?: InlineObject1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OTP>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.otpPost(inlineObject1, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1835,7 +1837,7 @@ export class OTPApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OTPApi
      */
-    public otpPost(inlineObject1?: InlineObject1, options?: any) {
+    public otpPost(inlineObject1?: InlineObject1, options?: AxiosRequestConfig) {
         return OTPApiFp(this.configuration).otpPost(inlineObject1, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -1861,7 +1863,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teamsGet: async (q?: string, id?: Array<string>, userId?: string, count?: number, page?: number, includeTeamMembers?: boolean, includeInviteLinks?: boolean, includeTotal?: boolean, options: any = {}): Promise<RequestArgs> => {
+        teamsGet: async (q?: string, id?: Array<string>, userId?: string, count?: number, page?: number, includeTeamMembers?: boolean, includeInviteLinks?: boolean, includeTotal?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/teams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1912,7 +1914,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -1928,7 +1930,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teamsJoinInvite: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        teamsJoinInvite: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('teamsJoinInvite', 'id', id)
             const localVarPath = `/teams/join`;
@@ -1953,7 +1955,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -1969,7 +1971,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        teamsPatch: async (teamPatchRequest?: TeamPatchRequest, options: any = {}): Promise<RequestArgs> => {
+        teamsPatch: async (teamPatchRequest?: TeamPatchRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/teams`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1990,7 +1992,7 @@ export const TeamsApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(teamPatchRequest, localVarRequestOptions, configuration)
@@ -2024,7 +2026,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teamsGet(q?: string, id?: Array<string>, userId?: string, count?: number, page?: number, includeTeamMembers?: boolean, includeInviteLinks?: boolean, includeTotal?: boolean, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
+        async teamsGet(q?: string, id?: Array<string>, userId?: string, count?: number, page?: number, includeTeamMembers?: boolean, includeInviteLinks?: boolean, includeTotal?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2001>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teamsGet(q, id, userId, count, page, includeTeamMembers, includeInviteLinks, includeTotal, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2035,7 +2037,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teamsJoinInvite(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async teamsJoinInvite(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teamsJoinInvite(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2046,7 +2048,7 @@ export const TeamsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async teamsPatch(teamPatchRequest?: TeamPatchRequest, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
+        async teamsPatch(teamPatchRequest?: TeamPatchRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2002>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.teamsPatch(teamPatchRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2122,7 +2124,7 @@ export class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public teamsGet(q?: string, id?: Array<string>, userId?: string, count?: number, page?: number, includeTeamMembers?: boolean, includeInviteLinks?: boolean, includeTotal?: boolean, options?: any) {
+    public teamsGet(q?: string, id?: Array<string>, userId?: string, count?: number, page?: number, includeTeamMembers?: boolean, includeInviteLinks?: boolean, includeTotal?: boolean, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsGet(q, id, userId, count, page, includeTeamMembers, includeInviteLinks, includeTotal, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2134,7 +2136,7 @@ export class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public teamsJoinInvite(id: string, options?: any) {
+    public teamsJoinInvite(id: string, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsJoinInvite(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2146,7 +2148,7 @@ export class TeamsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TeamsApi
      */
-    public teamsPatch(teamPatchRequest?: TeamPatchRequest, options?: any) {
+    public teamsPatch(teamPatchRequest?: TeamPatchRequest, options?: AxiosRequestConfig) {
         return TeamsApiFp(this.configuration).teamsPatch(teamPatchRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -2165,7 +2167,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersDelete: async (id: string, options: any = {}): Promise<RequestArgs> => {
+        usersDelete: async (id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('usersDelete', 'id', id)
             const localVarPath = `/users`;
@@ -2190,7 +2192,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -2212,7 +2214,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet: async (q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options: any = {}): Promise<RequestArgs> => {
+        usersGet: async (q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2259,7 +2261,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
 
     
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
 
@@ -2275,7 +2277,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPasswordPatch: async (resetPassword?: ResetPassword, options: any = {}): Promise<RequestArgs> => {
+        usersPasswordPatch: async (resetPassword?: ResetPassword, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users/password`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2295,7 +2297,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(resetPassword, localVarRequestOptions, configuration)
@@ -2313,7 +2315,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPatch: async (userId?: string, userPatch?: UserPatch, options: any = {}): Promise<RequestArgs> => {
+        usersPatch: async (userId?: string, userPatch?: UserPatch, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2338,7 +2340,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(userPatch, localVarRequestOptions, configuration)
@@ -2355,7 +2357,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersPost: async (userCreate?: UserCreate, options: any = {}): Promise<RequestArgs> => {
+        usersPost: async (userCreate?: UserCreate, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2379,7 +2381,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            setSearchParams(localVarUrlObj, localVarQueryParameter, options.query);
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(userCreate, localVarRequestOptions, configuration)
@@ -2406,7 +2408,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersDelete(id: string, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async usersDelete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersDelete(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2423,7 +2425,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
+        async usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersGet(q, id, count, page, includeMemberships, includeTotal, other, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2434,7 +2436,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersPasswordPatch(resetPassword?: ResetPassword, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async usersPasswordPatch(resetPassword?: ResetPassword, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersPasswordPatch(resetPassword, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2446,7 +2448,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersPatch(userId?: string, userPatch?: UserPatch, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async usersPatch(userId?: string, userPatch?: UserPatch, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersPatch(userId, userPatch, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2457,7 +2459,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersPost(userCreate?: UserCreate, options?: any): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
+        async usersPost(userCreate?: UserCreate, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<User>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.usersPost(userCreate, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2546,7 +2548,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersDelete(id: string, options?: any) {
+    public usersDelete(id: string, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersDelete(id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2564,7 +2566,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any) {
+    public usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersGet(q, id, count, page, includeMemberships, includeTotal, other, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2576,7 +2578,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersPasswordPatch(resetPassword?: ResetPassword, options?: any) {
+    public usersPasswordPatch(resetPassword?: ResetPassword, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersPasswordPatch(resetPassword, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2589,7 +2591,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersPatch(userId?: string, userPatch?: UserPatch, options?: any) {
+    public usersPatch(userId?: string, userPatch?: UserPatch, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersPatch(userId, userPatch, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -2601,7 +2603,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersPost(userCreate?: UserCreate, options?: any) {
+    public usersPost(userCreate?: UserCreate, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).usersPost(userCreate, options).then((request) => request(this.axios, this.basePath));
     }
 }
