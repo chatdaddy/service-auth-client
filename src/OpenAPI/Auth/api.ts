@@ -869,21 +869,12 @@ export interface TeamPatchRequestInviteLinks {
      */
     'id': string;
     /**
-     * If set, will delete the invite link
+     * If set to true, will delete the invite link
      * @type {boolean}
      * @memberof TeamPatchRequestInviteLinks
      */
-    'delete'?: TeamPatchRequestInviteLinksDeleteEnum;
+    'delete'?: boolean;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum TeamPatchRequestInviteLinksDeleteEnum {
-    True = true
-}
-
 /**
  * 
  * @export
@@ -903,21 +894,12 @@ export interface TeamPatchRequestMembers {
      */
     'scopes'?: Array<Scope>;
     /**
-     * If set, will delete the team member
+     * If set to true, will delete the team member
      * @type {boolean}
      * @memberof TeamPatchRequestMembers
      */
-    'delete'?: TeamPatchRequestMembersDeleteEnum;
+    'delete'?: boolean;
 }
-
-/**
-    * @export
-    * @enum {string}
-    */
-export enum TeamPatchRequestMembersDeleteEnum {
-    True = true
-}
-
 /**
  * 
  * @export
