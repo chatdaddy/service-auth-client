@@ -2188,6 +2188,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Fetch users you have access to
          * @param {string} [q] Search by name, ID, email, phone etc.
          * @param {Array<string>} [id] Fetch specific users by ID
+         * @param {Array<string>} [originalTeamId] Fetch specific users by original team ID
          * @param {number} [count] The numbers of items to return
          * @param {number} [page] The page number
          * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
@@ -2196,7 +2197,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet: async (q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        usersGet: async (q?: string, id?: Array<string>, originalTeamId?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2219,6 +2220,10 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
 
             if (id) {
                 localVarQueryParameter['id'] = id;
+            }
+
+            if (originalTeamId) {
+                localVarQueryParameter['originalTeamId'] = originalTeamId;
             }
 
             if (count !== undefined) {
@@ -2399,6 +2404,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @summary Fetch users you have access to
          * @param {string} [q] Search by name, ID, email, phone etc.
          * @param {Array<string>} [id] Fetch specific users by ID
+         * @param {Array<string>} [originalTeamId] Fetch specific users by original team ID
          * @param {number} [count] The numbers of items to return
          * @param {number} [page] The page number
          * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
@@ -2407,8 +2413,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.usersGet(q, id, count, page, includeMemberships, includeTotal, other, options);
+        async usersGet(q?: string, id?: Array<string>, originalTeamId?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse2003>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.usersGet(q, id, originalTeamId, count, page, includeMemberships, includeTotal, other, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2470,6 +2476,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @summary Fetch users you have access to
          * @param {string} [q] Search by name, ID, email, phone etc.
          * @param {Array<string>} [id] Fetch specific users by ID
+         * @param {Array<string>} [originalTeamId] Fetch specific users by original team ID
          * @param {number} [count] The numbers of items to return
          * @param {number} [page] The page number
          * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
@@ -2478,8 +2485,8 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any): AxiosPromise<InlineResponse2003> {
-            return localVarFp.usersGet(q, id, count, page, includeMemberships, includeTotal, other, options).then((request) => request(axios, basePath));
+        usersGet(q?: string, id?: Array<string>, originalTeamId?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: any): AxiosPromise<InlineResponse2003> {
+            return localVarFp.usersGet(q, id, originalTeamId, count, page, includeMemberships, includeTotal, other, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2539,6 +2546,7 @@ export class UsersApi extends BaseAPI {
      * @summary Fetch users you have access to
      * @param {string} [q] Search by name, ID, email, phone etc.
      * @param {Array<string>} [id] Fetch specific users by ID
+     * @param {Array<string>} [originalTeamId] Fetch specific users by original team ID
      * @param {number} [count] The numbers of items to return
      * @param {number} [page] The page number
      * @param {boolean} [includeMemberships] Should include the user\&#39;s memberships
@@ -2548,8 +2556,8 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public usersGet(q?: string, id?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).usersGet(q, id, count, page, includeMemberships, includeTotal, other, options).then((request) => request(this.axios, this.basePath));
+    public usersGet(q?: string, id?: Array<string>, originalTeamId?: Array<string>, count?: number, page?: number, includeMemberships?: boolean, includeTotal?: boolean, other?: Array<string>, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).usersGet(q, id, originalTeamId, count, page, includeMemberships, includeTotal, other, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
