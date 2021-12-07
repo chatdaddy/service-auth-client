@@ -97,7 +97,7 @@
       "editor",
       "viewer"
     ],
-    "group": "Broadcast Campaign Access"
+    "group": "Broadcast Access"
   },
   "CAMPAIGNS_CREATE": {
     "number": 8,
@@ -109,7 +109,7 @@
       "admin",
       "editor"
     ],
-    "group": "Broadcast Campaign Access"
+    "group": "Broadcast Access"
   },
   "CAMPAIGNS_DELETE": {
     "number": 9,
@@ -121,7 +121,7 @@
       "admin",
       "editor"
     ],
-    "group": "Broadcast Campaign Access"
+    "group": "Broadcast Access"
   },
   "CAMPAIGNS_UPDATE": {
     "number": 10,
@@ -133,7 +133,7 @@
       "admin",
       "editor"
     ],
-    "group": "Broadcast Campaign Access"
+    "group": "Broadcast Access"
   },
   "KEYWORD_READ": {
     "number": 11,
@@ -146,7 +146,7 @@
       "editor",
       "viewer"
     ],
-    "group": "Automated Keyword Reply Access"
+    "group": "Keyword Reply Access"
   },
   "KEYWORD_CREATE": {
     "number": 12,
@@ -158,7 +158,7 @@
       "admin",
       "editor"
     ],
-    "group": "Automated Keyword Reply Access"
+    "group": "Keyword Reply Access"
   },
   "KEYWORD_DELETE": {
     "number": 13,
@@ -170,7 +170,7 @@
       "admin",
       "editor"
     ],
-    "group": "Automated Keyword Reply Access"
+    "group": "Keyword Reply Access"
   },
   "KEYWORD_UPDATE": {
     "number": 14,
@@ -182,11 +182,11 @@
       "admin",
       "editor"
     ],
-    "group": "Automated Keyword Reply Access"
+    "group": "Keyword Reply Access"
   },
   "TEMPLATES_READ": {
     "number": 15,
-    "description": "Allow the reading of Message Templates",
+    "description": "Allow the reading of Message Flows",
     "features": [
       "team-inbox"
     ],
@@ -195,11 +195,11 @@
       "editor",
       "viewer"
     ],
-    "group": "Message Template Access"
+    "group": "Message Flow Access"
   },
   "TEMPLATES_CREATE": {
     "number": 16,
-    "description": "Allow the creation of Message Templates",
+    "description": "Allow the creation of Message Flows",
     "features": [
       "team-inbox"
     ],
@@ -207,11 +207,11 @@
       "admin",
       "editor"
     ],
-    "group": "Message Template Access"
+    "group": "Message Flow Access"
   },
   "TEMPLATES_DELETE": {
     "number": 17,
-    "description": "Allow the deletion of Message Templates",
+    "description": "Allow the deletion of Message Flows",
     "features": [
       "team-inbox"
     ],
@@ -219,11 +219,11 @@
       "admin",
       "editor"
     ],
-    "group": "Message Template Access"
+    "group": "Message Flow Access"
   },
   "TEMPLATES_UPDATE": {
     "number": 18,
-    "description": "Allow the updating of Message Templates",
+    "description": "Allow the updating of Message Flows",
     "features": [
       "team-inbox"
     ],
@@ -231,7 +231,7 @@
       "admin",
       "editor"
     ],
-    "group": "Message Template Access"
+    "group": "Message Flow Access"
   },
   "TAGS_READ": {
     "number": 19,
@@ -316,7 +316,7 @@
     "roles": [
       "admin"
     ],
-    "group": "Referrals"
+    "group": "Credit Access"
   },
   "TEAM_UPDATE": {
     "number": 29,
@@ -336,7 +336,7 @@
     "roles": [
       "admin"
     ],
-    "group": "Instant Messaging Accounts"
+    "group": "Accounts Access"
   },
   "ACCOUNT_READ": {
     "number": 31,
@@ -350,7 +350,7 @@
       "viewer",
       "agent"
     ],
-    "group": "Instant Messaging Accounts"
+    "group": "Accounts Access"
   },
   "ACCOUNT_DELETE": {
     "number": 32,
@@ -361,7 +361,7 @@
     "roles": [
       "admin"
     ],
-    "group": "Instant Messaging Accounts"
+    "group": "Accounts Access"
   },
   "ACCOUNT_PATCH": {
     "number": 30,
@@ -374,7 +374,7 @@
       "editor",
       "agent"
     ],
-    "group": "Instant Messaging Accounts"
+    "group": "Accounts Access"
   },
   "TEAMLINK_CREATE": {
     "number": 38,
