@@ -1056,7 +1056,8 @@ export interface UserCreate {
 export enum UserCreateMethod {
     AdminPanel = 'admin-panel',
     Otp = 'otp',
-    Boutir = 'boutir'
+    Boutir = 'boutir',
+    InstantReg = 'instant-reg'
 }
 
 /**
