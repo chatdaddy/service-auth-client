@@ -188,7 +188,7 @@
     "number": 15,
     "description": "Allow the reading of Message Flows",
     "features": [
-      "team-inbox"
+      "message-flows"
     ],
     "roles": [
       "admin",
@@ -201,7 +201,7 @@
     "number": 16,
     "description": "Allow the creation of Message Flows",
     "features": [
-      "team-inbox"
+      "message-flows"
     ],
     "roles": [
       "admin",
@@ -213,7 +213,7 @@
     "number": 17,
     "description": "Allow the deletion of Message Flows",
     "features": [
-      "team-inbox"
+      "message-flows"
     ],
     "roles": [
       "admin",
@@ -225,7 +225,7 @@
     "number": 18,
     "description": "Allow the updating of Message Flows",
     "features": [
-      "team-inbox"
+      "message-flows"
     ],
     "roles": [
       "admin",
