@@ -10,6 +10,8 @@ MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEevVHEB81+mIuHJ6Ka2+GveuyAb2P
 SNEGnm4K1V6HzZF0F9+mQS7N0UHNE+gv0OQIKi5D6e48ZCVytj3iX4Todg==
 -----END PUBLIC KEY-----
 `
+const RETRY_WAIT_INTERVAL_MS = 500
+
 /** exports the binary string used in auth tokens */
 export const generateBinaryString = (scopes: Scope[]) => {
 	let str = ''
@@ -54,7 +56,6 @@ export const getScopes = (binary: string) => {
 	}
 	return scopes
 }
-
 /** Checks whether this JWT token data has at least one of these scopes */
 export const validateUserScopes = (user: JWT, ...scopes: Scope[]) => {
 	if (!scopes.length) return { authorized: true, missingScopes: [] }
@@ -68,18 +69,25 @@ export const validateUserScopes = (user: JWT, ...scopes: Scope[]) => {
 }
 /** Options to create an access token for use in APIs */
 export type AccessTokenFactoryOptions = {
+	/** extra parameters like scopes to pass to the token generation request */
 	request: Omit<RefreshTokenLoginRequest, 'teamId'>
+	/** optional list of existing tokens to inject into the cache */
 	existingTokens?: string[]
+	/** optional config to generate the API client */
 	config?: ConfigurationParameters
+	/** max number of retries, 500ms delay between requests */
+	maxRetries?: number 
 }
 
 export const makeAccessTokenFactory = (
-	{ request, existingTokens, config }: AccessTokenFactoryOptions
+	{ request, existingTokens, config, maxRetries }: AccessTokenFactoryOptions
 ) => {
 
 	type TokenCache = { [_: string]: { token: Promise<string | { error: Error }>, expiresAt: Date | undefined } }
 
 	existingTokens = existingTokens || []
+	maxRetries = maxRetries || 1
+
 	const tokenAPI = new OAuthApi(new Configuration(config || {}))
 	const tokenCache: TokenCache = 
 		existingTokens.reduce((dict, token) => {
@@ -91,14 +99,32 @@ export const makeAccessTokenFactory = (
 			return dict
 		}, {} as TokenCache)
 
+	const makeTokenApiRequest = async(req: RefreshTokenLoginRequest) => {
+		let triesLeft = maxRetries
+		while(true) {
+			try {
+				const result = await tokenAPI.tokenPost(req)
+				return result
+			} catch(error) {
+				triesLeft -= 1
+				// throw the error if it fails
+				if(triesLeft <= 0) {
+					throw error
+				}
+				// wait some time before retrying
+				await new Promise(resolve => setTimeout(resolve, RETRY_WAIT_INTERVAL_MS))
+			}
+		}
+	}
+
 	return async (teamId: string) => {
 		const key = teamId
 		let task = tokenCache[key]
 		if(!task || (!!task.expiresAt && (task.expiresAt?.getTime() < Date.now()))) {
 			tokenCache[key] = {
-				token: (async () => {
+				token: (async() => {
 					try {
-						const { data: { access_token } } = await tokenAPI.tokenPost(
+						const { data: { access_token } } = await makeTokenApiRequest(
 							{ ...request, teamId }
 						)
 						const jwt = decodeToken(access_token)
