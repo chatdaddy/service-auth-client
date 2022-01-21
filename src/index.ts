@@ -11,6 +11,8 @@ SNEGnm4K1V6HzZF0F9+mQS7N0UHNE+gv0OQIKi5D6e48ZCVytj3iX4Todg==
 -----END PUBLIC KEY-----
 `
 const RETRY_WAIT_INTERVAL_MS = 500
+// expire the token a little early to account for delays in network requests
+const TOKEN_EXPIRY_MARGIN_MS = 60 * 60 * 1000 // 1 minute
 
 /** exports the binary string used in auth tokens */
 export const generateBinaryString = (scopes: Scope[]) => {
@@ -92,7 +94,7 @@ export const makeAccessTokenFactory = (
 	const tokenCache: TokenCache = 
 		existingTokens.reduce((dict, token) => {
 			const jwt = decodeToken(token)
-			const expiresAt = expiryDateOfToken(jwt)
+			const expiresAt = new Date(expiryDateOfToken(jwt).getTime() - TOKEN_EXPIRY_MARGIN_MS)
 			if(expiresAt.getTime() > Date.now()) {
 				dict[jwt.user.teamId] = { token: Promise.resolve(token), expiresAt }
 			}
@@ -128,7 +130,7 @@ export const makeAccessTokenFactory = (
 							{ ...request, teamId }
 						)
 						const jwt = decodeToken(access_token)
-						const expiresAt = expiryDateOfToken(jwt)
+						const expiresAt = new Date(expiryDateOfToken(jwt).getTime() - TOKEN_EXPIRY_MARGIN_MS)
 						if(tokenCache[key]) {
 							tokenCache[key]!.expiresAt = expiresAt
 						}
