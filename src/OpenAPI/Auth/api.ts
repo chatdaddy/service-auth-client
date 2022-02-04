@@ -1021,6 +1021,12 @@ export interface User {
      * @memberof User
      */
     'memberships'?: Array<TeamMember>;
+    /**
+     * 
+     * @type {Array<WebPushSubscription>}
+     * @memberof User
+     */
+    'webPushSubscriptions'?: Array<WebPushSubscription>;
 }
 /**
  * 
@@ -1114,6 +1120,37 @@ export interface UserPatch {
      * @memberof UserPatch
      */
     'password'?: string;
+    /**
+     * 
+     * @type {Array<WebPushSubscription>}
+     * @memberof UserPatch
+     */
+    'webPushSubscriptions'?: Array<WebPushSubscription>;
+}
+/**
+ * 
+ * @export
+ * @interface WebPushSubscription
+ */
+export interface WebPushSubscription {
+    /**
+     * 
+     * @type {string}
+     * @memberof WebPushSubscription
+     */
+    'endpoint': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof WebPushSubscription
+     */
+    'authKey': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof WebPushSubscription
+     */
+    'p256dhKey': string;
 }
 
 /**
