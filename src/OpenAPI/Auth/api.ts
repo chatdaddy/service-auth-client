@@ -256,6 +256,12 @@ export interface InlineResponse2004 {
      * @memberof InlineResponse2004
      */
     'email': NotificationResult;
+    /**
+     * 
+     * @type {NotificationResult}
+     * @memberof InlineResponse2004
+     */
+    'desktop'?: NotificationResult;
 }
 /**
  * 
@@ -417,6 +423,12 @@ export interface NotifyModel {
      * @memberof NotifyModel
      */
     'email'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof NotifyModel
+     */
+    'desktop'?: boolean;
 }
 /**
  * 
