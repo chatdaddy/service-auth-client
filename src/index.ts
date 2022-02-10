@@ -12,7 +12,7 @@ SNEGnm4K1V6HzZF0F9+mQS7N0UHNE+gv0OQIKi5D6e48ZCVytj3iX4Todg==
 `
 const RETRY_WAIT_INTERVAL_MS = 500
 // expire the token a little early to account for delays in network requests
-const TOKEN_EXPIRY_MARGIN_MS = 60 * 60 * 1000 // 1 minute
+const TOKEN_EXPIRY_MARGIN_MS = 60 * 1000 // 1 minute
 
 /** exports the binary string used in auth tokens */
 export const generateBinaryString = (scopes: Scope[]) => {
