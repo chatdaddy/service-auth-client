@@ -431,7 +431,13 @@ export interface JWTUser {
      * @type {number}
      * @memberof JWTUser
      */
-    'phoneNumber': number;
+    'phoneNumber'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof JWTUser
+     */
+    'emailAddress'?: string;
 }
 /**
  * @type NotificationResult
@@ -1024,7 +1030,7 @@ export interface User {
      * @type {number}
      * @memberof User
      */
-    'phoneNumber': number;
+    'phoneNumber': number | null;
     /**
      * 
      * @type {string}
@@ -1115,7 +1121,8 @@ export enum UserCreateMethod {
     AdminPanel = 'admin-panel',
     Otp = 'otp',
     Boutir = 'boutir',
-    InstantReg = 'instant-reg'
+    InstantReg = 'instant-reg',
+    Firebase = 'firebase'
 }
 
 /**
