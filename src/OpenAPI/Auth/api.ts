@@ -106,6 +106,40 @@ export interface ExternalTokenPostResponseAllOf {
     'created'?: boolean;
 }
 /**
+ * @type ExternalTokenRequest
+ * @export
+ */
+export type ExternalTokenRequest = BoutirTokenRequest | FirebaseTokenRequest;
+
+/**
+ * Login with Firebase
+ * @export
+ * @interface FirebaseTokenRequest
+ */
+export interface FirebaseTokenRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof FirebaseTokenRequest
+     */
+    'type': FirebaseTokenRequestTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof FirebaseTokenRequest
+     */
+    'idToken': string;
+}
+
+/**
+    * @export
+    * @enum {string}
+    */
+export enum FirebaseTokenRequestTypeEnum {
+    Firebase = 'firebase'
+}
+
+/**
  * 
  * @export
  * @interface InlineObject
@@ -1600,11 +1634,11 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * 
          * @summary Login via an external partner
-         * @param {BoutirTokenRequest} [body] 
+         * @param {ExternalTokenRequest} [externalTokenRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tokenPostExternal: async (body?: BoutirTokenRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        tokenPostExternal: async (externalTokenRequest?: ExternalTokenRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/token/external`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1624,7 +1658,7 @@ export const OAuthApiAxiosParamCreator = function (configuration?: Configuration
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(externalTokenRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1676,12 +1710,12 @@ export const OAuthApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Login via an external partner
-         * @param {BoutirTokenRequest} [body] 
+         * @param {ExternalTokenRequest} [externalTokenRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async tokenPostExternal(body?: BoutirTokenRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ExternalTokenPostResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.tokenPostExternal(body, options);
+        async tokenPostExternal(externalTokenRequest?: ExternalTokenRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ExternalTokenPostResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.tokenPostExternal(externalTokenRequest, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1726,12 +1760,12 @@ export const OAuthApiFactory = function (configuration?: Configuration, basePath
         /**
          * 
          * @summary Login via an external partner
-         * @param {BoutirTokenRequest} [body] 
+         * @param {ExternalTokenRequest} [externalTokenRequest] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        tokenPostExternal(body?: BoutirTokenRequest, options?: any): AxiosPromise<ExternalTokenPostResponse> {
-            return localVarFp.tokenPostExternal(body, options).then((request) => request(axios, basePath));
+        tokenPostExternal(externalTokenRequest?: ExternalTokenRequest, options?: any): AxiosPromise<ExternalTokenPostResponse> {
+            return localVarFp.tokenPostExternal(externalTokenRequest, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1781,13 +1815,13 @@ export class OAuthApi extends BaseAPI {
     /**
      * 
      * @summary Login via an external partner
-     * @param {BoutirTokenRequest} [body] 
+     * @param {ExternalTokenRequest} [externalTokenRequest] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthApi
      */
-    public tokenPostExternal(body?: BoutirTokenRequest, options?: AxiosRequestConfig) {
-        return OAuthApiFp(this.configuration).tokenPostExternal(body, options).then((request) => request(this.axios, this.basePath));
+    public tokenPostExternal(externalTokenRequest?: ExternalTokenRequest, options?: AxiosRequestConfig) {
+        return OAuthApiFp(this.configuration).tokenPostExternal(externalTokenRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
