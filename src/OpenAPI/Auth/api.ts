@@ -341,7 +341,7 @@ export interface InviteLink {
      */
     'id': string;
     /**
-     * The team it can join
+     * Unique identifier for a team
      * @type {string}
      * @memberof InviteLink
      */
@@ -409,13 +409,13 @@ export interface JWT {
  */
 export interface JWTUser {
     /**
-     * 
+     * Unique identifier for a user
      * @type {string}
      * @memberof JWTUser
      */
     'id': string;
     /**
-     * 
+     * Unique identifier for a team
      * @type {string}
      * @memberof JWTUser
      */
@@ -828,13 +828,13 @@ export interface TeamMember {
      */
     'user'?: User;
     /**
-     * 
+     * Unique identifier for a user
      * @type {string}
      * @memberof TeamMember
      */
     'userId': string;
     /**
-     * 
+     * Unique identifier for a team
      * @type {string}
      * @memberof TeamMember
      */
